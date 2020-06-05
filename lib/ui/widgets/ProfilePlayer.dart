@@ -1,6 +1,6 @@
 
 
-import 'package:greenbar/ui/views/mainDrawer.dart';
+import 'package:emerge/ui/views/mainDrawer.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePlayer extends StatelessWidget {

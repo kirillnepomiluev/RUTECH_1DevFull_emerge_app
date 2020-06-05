@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import '../AddCommentPage.dart';
+import 'AddCommentPage.dart';
 import 'RaisedGradientButton.dart';
 
 class CommentWidget extends StatefulWidget {

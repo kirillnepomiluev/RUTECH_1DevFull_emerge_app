@@ -1,6 +1,6 @@
 import 'dart:isolate';
 
-import 'package:greenbar/core/fireStorage.dart';
+import 'package:emerge/core/fireStorage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';

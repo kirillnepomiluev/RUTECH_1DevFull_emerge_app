@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:greenbar/locale/app_translations.dart';
+import 'package:emerge/locale/app_translations.dart';
 
 import '../../ControlTabPage.dart';
 import '../../main.dart';

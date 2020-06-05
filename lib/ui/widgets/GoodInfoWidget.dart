@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:greenbar/GoodInfoPage.dart';
-import 'package:greenbar/ui/widgets/MyCard.dart';
+import 'package:emerge/ui/widgets/MyCard.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
+import '../GoodInfoPage.dart';
 import 'ToastWidget.dart';
 
 class GoodInfoWidget extends StatefulWidget {

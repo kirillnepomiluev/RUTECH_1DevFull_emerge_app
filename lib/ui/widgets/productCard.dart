@@ -1,5 +1,4 @@
-import 'package:greenbar/core/models/productModel.dart';
-import 'package:greenbar/ui/views/productDetails.dart';
+import 'package:emerge/core/models/productModel.dart';
 import 'package:flutter/material.dart';
 
 

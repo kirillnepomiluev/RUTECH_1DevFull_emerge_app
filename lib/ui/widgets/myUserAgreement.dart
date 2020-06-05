@@ -1,6 +1,6 @@
 
-import 'package:greenbar/MyScaffold.dart';
-import 'package:greenbar/main.dart';
+import 'package:emerge/MyScaffold.dart';
+import 'package:emerge/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

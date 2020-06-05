@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 Firestore firestore = Firestore.instance;
 SharedPreferences prefs;
 FirebaseUser user;
+FirebaseDatabase database;
 Map<String, Object> userdata;
 bool isDarkTheme;
 String currentDeviceId;

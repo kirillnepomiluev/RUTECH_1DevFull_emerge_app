@@ -1,4 +1,4 @@
-import 'package:greenbar/ui/widgets/MyCard.dart';
+import 'package:emerge/ui/widgets/MyCard.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 

@@ -1,4 +1,4 @@
-import 'package:greenbar/DeviceInfoPage.dart';
+
 import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
 
