@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emerge/router.dart';
+import 'package:emerge/themes/custom_theme.dart';
 import 'package:emerge/ui/pages/profilePage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 
@@ -16,85 +19,88 @@ bool isDarkTheme;
 String currentDeviceId;
 final FirebaseMessaging fcm = FirebaseMessaging();
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final FirebaseApp app = await FirebaseApp.configure(
+    name: 'db2',
+    options: Platform.isIOS
+        ? const FirebaseOptions(
+      googleAppID: '1:297855924061:ios:c6de2b69b03a5be8',
+      gcmSenderID: '297855924061',
+      databaseURL: 'https://flutterfire-cd2f7.firebaseio.com',
+    )
+        : const FirebaseOptions(
+      googleAppID: '1:53994373947:android:c43f8bc5d0763490b76d1e',
+      apiKey: 'AIzaSyA6bt__ymJedW_zde-nW4WxiqNrZ2Jukpk',
+      databaseURL: 'https://fbproj-62d34.firebaseio.com/',
+    ),
+  );
+  database = FirebaseDatabase(app: app);
+  await SharedPreferences.getInstance().then((value) {
+    prefs = value;
+    if (prefs != null && prefs.get("isDarkTeme") != null) {
+      isDarkTheme = prefs.get("isDarkTeme");
+    }
+  });
+
+  isDarkTheme = isDarkTheme == null ? false : isDarkTheme;
+//  await initializeDateFormatting();
+  runApp(
+    CustomTheme(
+      initialThemeKey: isDarkTheme ? MyThemeKeys.DARKFC : MyThemeKeys.LIGHTFC,
+      child: MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: ProfilePage(),
-    );
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  AppTranslationsDelegate _newLocaleDelegate;
+
+  @override
+  void initState() {
+    super.initState();
+    application.onLocaleChanged = onLocaleChange;
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
+  void onLocaleChange(Locale locale) {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      _newLocaleDelegate = AppTranslationsDelegate(newLocale: locale);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
+    Locale currentLocale;
 
-        title: Text(widget.title),
-        actions: <Widget>[
-          FlatButton(onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) { return  ProfilePage(); }));
+    if (prefs != null && prefs.get("currenLocale") != null) {
+      currentLocale = Locale(prefs.get("currenLocale"));
+    }
+    _newLocaleDelegate = AppTranslationsDelegate(
+      newLocale: currentLocale,
+    );
 
-          }, child: Icon(Icons.account_circle),)
-
-        ],
-      ),
-      body: Center(
-
-
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        _newLocaleDelegate,
+        //provides localised strings
+        GlobalMaterialLocalizations.delegate,
+        //provides RTL support
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale("en", ""),
+        const Locale("ru", ""),
+      ],
+      initialRoute: '/splashPage',
+      title: 'Product App',
+      theme: CustomTheme.of(context),
+      onGenerateRoute: Router.generateRoute,
     );
   }
 }
