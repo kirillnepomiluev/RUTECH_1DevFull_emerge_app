@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "719486402945",
+    "firebase_url": "https://emergeconfhack.firebaseio.com",
+    "project_id": "emergeconfhack",
+    "storage_bucket": "emergeconfhack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719486402945:android:c9a1f519a3d95d84fa6880",
+        "android_client_info": {
+          "package_name": "com.example.emerge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719486402945-kshse7q2i5tpviki9gdk6ii782fqt8os.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1jE2dPd3SQe9tlE9oW0ZyQi9baqv_PHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719486402945-kshse7q2i5tpviki9gdk6ii782fqt8os.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
