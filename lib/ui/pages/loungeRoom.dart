@@ -1,18 +1,44 @@
-
 import 'package:emerge/themes/colors.dart';
-import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CheckTicket extends StatefulWidget{
+class loungeRoom extends StatefulWidget {
   @override
-  _CheckTicketState createState() => _CheckTicketState();
+  _loungeRoomState createState() => _loungeRoomState();
 }
 
-class _CheckTicketState extends State<CheckTicket> {
+class _loungeRoomState extends State<loungeRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: Column(
+        children: <Widget>[
+//          FlatButton(
+//            child: Text('Балкон'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/balcony');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Бассейн'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/swimmingpool');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Алкогольный бар'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/alcobar');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Чайный бар'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/teabar');
+//            },
+//          )
+        ],
+      ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
@@ -62,35 +88,38 @@ class _CheckTicketState extends State<CheckTicket> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 FlatButton(
-                                  child: Text('Зеркало'),
+                                  child: Text('Балкон'),
                                   onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed('/mirror');
+                                    Navigator.of(context).pushNamed('/balcony');
                                   },
                                 ),
                                 FlatButton(
-                                  child: Text('Дверь'),
+                                  child: Text('Бассейн'),
                                   onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed('/enterpage');
+                                    Navigator.of(context).pushNamed('/swimmingpool');
                                   },
                                 ),
                                 FlatButton(
-                                  child: Text('Проверить сумку'),
+                                  child: Text('Алкогольный бар'),
                                   onPressed: () {
-                                    Navigator.of(context)
-                                        .pushNamed('/checkbag');
+                                    Navigator.of(context).pushNamed('/alcobar');
                                   },
                                 ),
-                                myGradientButton(context,
-                                  btnText: "На расепшн",
-                                  funk: () {
+                                FlatButton(
+                                  child: Text('Чайный бар'),
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed('/teabar');
+                                  },
+                                ),
+                                FlatButton(
+                                  child: Text('На ресепшн'),
+                                  onPressed: () {
                                     Navigator.of(context).pushNamed('/reseptions');
                                   },
                                 ),
-                                myGradientButton(context,
-                                  btnText: "Домой",
-                                  funk: () {
+                                FlatButton(
+                                  child: Text('Домой'),
+                                  onPressed: () {
                                     Navigator.of(context).pushNamed('/inhotel');
                                   },
                                 )
