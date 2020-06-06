@@ -1,5 +1,7 @@
 
 
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
@@ -33,6 +35,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
     super.initState();
     getPeoplesInRoom();
     setRoutes();
+    enterToRoom();
   }
 
   @override
@@ -131,6 +134,26 @@ class _AbstractRoomState extends State<AbstractRoom> {
       setState(() {
         peoplesInRoom = peoples;
       });
+  }
+
+  void enterToRoom() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    FirebaseUser user = await firebaseAuth.currentUser();
+    String uid = user != null ? user.uid : "id" + Random(44).nextInt(67054).toString();
+    var dataToSet = {
+      "id" : uid,
+      "name" : "UserName" + Random(44).nextInt(67054).toString()
+    };
+
+    await Firestore.instance
+        .collection("rooms")
+        .document(widget.roomPath)
+        .collection("peoples")
+        .document(uid)
+        .setData(dataToSet);
+
+    setState(() {
+      peoplesInRoom.add(PeoplesInRoom.fromMap(dataToSet));
     });
   }
 

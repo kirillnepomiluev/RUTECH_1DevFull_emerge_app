@@ -15,18 +15,15 @@ class Reseptions extends StatefulWidget {
 
 class _ReseptionsState extends State<Reseptions> {
 
-  List<List<PeoplesInRoom>> peoplesInRoom = new List();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getPeoplesInRoom();
   }
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("peoplesInRoom" + peoplesInRoom.toString());
     return Scaffold(
       body: PanoramaWidget(photoUrl: "assets/central.jpg",),
         bottomNavigationBar: BottomNavigationBar(
@@ -121,31 +118,5 @@ class _ReseptionsState extends State<Reseptions> {
     );
   }
 
-  void getPeoplesInRoom() async {
-    List<List<dynamic>> peoples = new List();
-    List<List<PeoplesInRoom>> groupPeoplesInRoom = new List();
-    Firestore.instance.collection("rooms").document("reception").collection("peoples").snapshots()
-        .listen((snapshot) {
-      snapshot.documents.forEach((people) {
-        debugPrint("PEOPLE1" + people.toString());
-        peoples.add(
-            List.from(people["peoples"])
-        );
-      });
-      peoples.forEach((element) {
-        List<PeoplesInRoom> peoplesInRoom = new List();
-        debugPrint("PEOPLE2" + element.toString());
-        element.forEach((e) {
-          debugPrint("PEOPLE3" + e.toString());
-          peoplesInRoom.add(
-              PeoplesInRoom(e["id"], e["name"], e["stream"]));
-        });
-        groupPeoplesInRoom.add(peoplesInRoom);
-      });
-      setState(() {
-        peoplesInRoom = groupPeoplesInRoom;
-      });
-    });
-  }
 
 }
