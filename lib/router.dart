@@ -1,4 +1,5 @@
 
+import 'package:emerge/ui/Image.dart';
 import 'package:emerge/ui/pages/alcoBar.dart';
 import 'package:emerge/ui/pages/aus.dart';
 import 'package:emerge/ui/pages/ausFacebook.dart';
@@ -90,6 +91,9 @@ class Router {
         return MaterialPageRoute(builder: (_) => AusGoogle());
       case '/ausnumber':
         return MaterialPageRoute(builder: (_) => AusNumber());
+      case '/takepicturescreen':
+        return MaterialPageRoute(builder: (_) => TakePictureScreen());
+
 
 
 

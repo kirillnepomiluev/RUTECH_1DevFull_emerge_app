@@ -103,7 +103,7 @@ class _MyAppState extends State<MyApp> {
         const Locale("en", ""),
         const Locale("ru", ""),
       ],
-      initialRoute: '/aus',
+      initialRoute: '/takepicturescreen',
       title: 'Product App',
       theme: CustomTheme.of(context),
       onGenerateRoute: Router.generateRoute,
