@@ -11,16 +11,14 @@ class _EnterPageState extends State<EnterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
       body: Column(
         children: <Widget>[
-          FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
-            },
-          )
+//          FlatButton(
+//            child: Text('Ресепшн'),
+//            onPressed: (){
+//              Navigator.of(context).pushNamed('/reseptions');
+//            },
+//          )
         ],
       ),
         bottomNavigationBar: BottomNavigationBar(

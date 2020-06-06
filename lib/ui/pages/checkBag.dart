@@ -14,18 +14,18 @@ class _CheckBagState extends State<CheckBag> {
       body: Center(
         child: Row(
             children: <Widget>[
-              FlatButton(
-                child: Text("билет"),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/checkticket');
-                },
-              ),
-              FlatButton(
-                child: Text("карту"),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/сheckсard');
-                },
-              )
+//              FlatButton(
+//                child: Text("билет"),
+//                onPressed: () {
+//                  Navigator.of(context).pushNamed('/checkticket');
+//                },
+//              ),
+//              FlatButton(
+//                child: Text("карту"),
+//                onPressed: () {
+//                  Navigator.of(context).pushNamed('/сheckсard');
+//                },
+//              )
             ],
           ),
       ),

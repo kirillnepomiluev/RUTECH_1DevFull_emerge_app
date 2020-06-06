@@ -14,24 +14,24 @@ class _InHotelState extends State<InHotel> {
     return Scaffold(
         body: Column(
           children: <Widget>[
-            FlatButton(
-              child: Text('Зеркало'),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/mirror');
-              },
-            ),
-            FlatButton(
-              child: Text('Дверь'),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/enterpage');
-              },
-            ),
-            FlatButton(
-              child: Text('Проверить сумку'),
-              onPressed: () {
-                Navigator.of(context).pushNamed('/checkbag');
-              },
-            )
+//            FlatButton(
+//              child: Text('Зеркало'),
+//              onPressed: () {
+//                Navigator.of(context).pushNamed('/mirror');
+//              },
+//            ),
+//            FlatButton(
+//              child: Text('Дверь'),
+//              onPressed: () {
+//                Navigator.of(context).pushNamed('/enterpage');
+//              },
+//            ),
+//            FlatButton(
+//              child: Text('Проверить сумку'),
+//              onPressed: () {
+//                Navigator.of(context).pushNamed('/checkbag');
+//              },
+//            )
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(

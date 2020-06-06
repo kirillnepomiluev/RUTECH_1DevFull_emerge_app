@@ -19,30 +19,30 @@ class _BalconyState extends State<Balcony> {
       ),
       body: Column(
         children: <Widget>[
-          FlatButton(
-            child: Text('Лаундж комната'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/loungeRoom');
-            },
-          ),
-          FlatButton(
-            child: Text('Бассейн'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/swimmingpool');
-            },
-          ),
-          FlatButton(
-            child: Text('Алкогольный бар'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/alcobar');
-            },
-          ),
-          FlatButton(
-            child: Text('Чайный бар'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/teabar');
-            },
-          )
+//          FlatButton(
+//            child: Text('Лаундж комната'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/loungeRoom');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Бассейн'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/swimmingpool');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Алкогольный бар'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/alcobar');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Чайный бар'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/teabar');
+//            },
+//          )
         ],
       ),
         bottomNavigationBar: BottomNavigationBar(

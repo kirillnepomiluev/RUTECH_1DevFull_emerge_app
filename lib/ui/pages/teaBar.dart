@@ -19,30 +19,30 @@ class _TeaBarState extends State<TeaBar> {
       ),
       body: Column(
         children: <Widget>[
-          FlatButton(
-            child: Text('Лаундж комната'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/loungeRoom');
-            },
-          ),
-          FlatButton(
-            child: Text('Балкон'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/balcony');
-            },
-          ),
-          FlatButton(
-            child: Text('Бассейн'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/swimmingpool');
-            },
-          ),
-          FlatButton(
-            child: Text('Алкогольный бар'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/alcobar');
-            },
-          ),
+//          FlatButton(
+//            child: Text('Лаундж комната'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/loungeRoom');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Балкон'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/balcony');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Бассейн'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/swimmingpool');
+//            },
+//          ),
+//          FlatButton(
+//            child: Text('Алкогольный бар'),
+//            onPressed: () {
+//              Navigator.of(context).pushNamed('/alcobar');
+//            },
+//          ),
         ],
       ),
         bottomNavigationBar: BottomNavigationBar(
