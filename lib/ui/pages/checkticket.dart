@@ -1,27 +1,16 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class CheckTicket extends StatefulWidget{
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _CheckTicketState createState() => _CheckTicketState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _CheckTicketState extends State<CheckTicket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
-            },
-          )
-        ],
-      ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,

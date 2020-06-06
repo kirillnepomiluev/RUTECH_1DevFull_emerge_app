@@ -1,23 +1,53 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class Reseptions extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _ReseptionsState createState() => _ReseptionsState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _ReseptionsState extends State<Reseptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(title: FlatButton(
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
       ),
       body: Column(
         children: <Widget>[
           FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
+            child: Text('Лаундж комната'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/loungeRoom');
+            },
+          ),
+          FlatButton(
+            child: Text('Балкон'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/balcony');
+            },
+          ),
+          FlatButton(
+            child: Text('Бассейн'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/swimmingpool');
+            },
+          ),
+          FlatButton(
+            child: Text('Алкогольный бар'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/alcobar');
+            },
+          ),
+          FlatButton(
+            child: Text('Чайный бар'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/teabar');
             },
           )
         ],
@@ -26,23 +56,11 @@ class _EnterPageState extends State<EnterPage> {
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
             unselectedItemColor:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelColor,
-            selectedItemColor: Theme
-                .of(context)
-                .tabBarTheme
-                .labelColor,
-            selectedLabelStyle: Theme
-                .of(context)
-                .tabBarTheme
-                .labelStyle,
+            Theme.of(context).tabBarTheme.unselectedLabelColor,
+            selectedItemColor: Theme.of(context).tabBarTheme.labelColor,
+            selectedLabelStyle: Theme.of(context).tabBarTheme.labelStyle,
             unselectedLabelStyle:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelStyle,
+            Theme.of(context).tabBarTheme.unselectedLabelStyle,
             showUnselectedLabels: true,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(

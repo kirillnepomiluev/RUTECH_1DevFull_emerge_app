@@ -1,27 +1,24 @@
+
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class Mirror extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _MirrorState createState() => _MirrorState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _MirrorState extends State<Mirror> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text('Ресепшн'),
+        body: Center(
+          child: FlatButton(
             onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
+              Navigator.pop(context);
             },
-          )
-        ],
-      ),
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,

@@ -1,27 +1,38 @@
-import 'package:flutter/cupertino.dart';
+import 'package:emerge/chart/line_chart.dart';
+import 'package:emerge/locale/app_translations.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class InHotel extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _InHotelState createState() => _InHotelState();
 }
 
-class _EnterPageState extends State<EnterPage> {
-  @override
+
+class _InHotelState extends State<InHotel> {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
-            },
-          )
-        ],
-      ),
+        body: Column(
+          children: <Widget>[
+            FlatButton(
+              child: Text('Зеркало'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/mirror');
+              },
+            ),
+            FlatButton(
+              child: Text('Дверь'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/enterpage');
+              },
+            ),
+            FlatButton(
+              child: Text('Проверить сумку'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/checkbag');
+              },
+            )
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
@@ -73,7 +84,6 @@ class _EnterPageState extends State<EnterPage> {
               }
               Navigator.pushNamed(context, _routeName);
             })
-
     );
   }
 }

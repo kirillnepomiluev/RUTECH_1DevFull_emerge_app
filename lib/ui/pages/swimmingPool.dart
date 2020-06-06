@@ -1,23 +1,45 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class SwimmingPool extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _SwimmingPoolState createState() => _SwimmingPoolState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _SwimmingPoolState extends State<SwimmingPool> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(title: FlatButton(
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
       ),
       body: Column(
         children: <Widget>[
           FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
+            child: Text('Лаундж комната'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/loungeRoom');
+            },
+          ),
+          FlatButton(
+            child: Text('Балкон'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/balcony');
+            },
+          ),
+          FlatButton(
+            child: Text('Алкогольный бар'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/alcobar');
+            },
+          ),
+          FlatButton(
+            child: Text('Чайный бар'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/teabar');
             },
           )
         ],

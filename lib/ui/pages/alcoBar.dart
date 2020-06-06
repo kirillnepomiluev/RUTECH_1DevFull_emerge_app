@@ -1,23 +1,45 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class AlcoBar extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _AlcoBarState createState() => _AlcoBarState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _AlcoBarState extends State<AlcoBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(title: FlatButton(
+        onPressed: (){
+          Navigator.pop(context);
+        },
+      ),
       ),
       body: Column(
         children: <Widget>[
           FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
+            child: Text('Лаундж комната'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/loungeRoom');
+            },
+          ),
+          FlatButton(
+            child: Text('Балкон'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/balcony');
+            },
+          ),
+          FlatButton(
+            child: Text('Бассейн'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/swimmingpool');
+            },
+          ),
+          FlatButton(
+            child: Text('Чайный бар'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/teabar');
             },
           )
         ],

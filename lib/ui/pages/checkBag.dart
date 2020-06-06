@@ -1,48 +1,42 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class EnterPage extends StatefulWidget {
+class CheckBag extends StatefulWidget {
   @override
-  _EnterPageState createState() => _EnterPageState();
+  _CheckBagState createState() => _CheckBagState();
 }
 
-class _EnterPageState extends State<EnterPage> {
+class _CheckBagState extends State<CheckBag> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text('Ресепшн'),
-            onPressed: (){
-              Navigator.of(context).pushNamed('/reseptions');
-            },
-          )
-        ],
+      body: Center(
+        child: Row(
+            children: <Widget>[
+              FlatButton(
+                child: Text("билет"),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/checkticket');
+                },
+              ),
+              FlatButton(
+                child: Text("карту"),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/сheckсard');
+                },
+              )
+            ],
+          ),
       ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
             unselectedItemColor:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelColor,
-            selectedItemColor: Theme
-                .of(context)
-                .tabBarTheme
-                .labelColor,
-            selectedLabelStyle: Theme
-                .of(context)
-                .tabBarTheme
-                .labelStyle,
+            Theme.of(context).tabBarTheme.unselectedLabelColor,
+            selectedItemColor: Theme.of(context).tabBarTheme.labelColor,
+            selectedLabelStyle: Theme.of(context).tabBarTheme.labelStyle,
             unselectedLabelStyle:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelStyle,
+            Theme.of(context).tabBarTheme.unselectedLabelStyle,
             showUnselectedLabels: true,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -75,5 +69,6 @@ class _EnterPageState extends State<EnterPage> {
             })
 
     );
+    throw UnimplementedError();
   }
 }
