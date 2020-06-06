@@ -1,5 +1,6 @@
 
 
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,18 @@ class Mirror extends StatefulWidget {
 }
 
 class _MirrorState extends State<Mirror> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    enterToRoom("mirror");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +87,7 @@ class _MirrorState extends State<Mirror> {
                                   funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/enterpage');
+                                    exitFromRoom("mirror");
                                   },
                                 ),
                                 myGradientButton(context,
@@ -87,6 +101,7 @@ class _MirrorState extends State<Mirror> {
                                   btnText: 'Домой',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
+                                    exitFromRoom("mirror");
                                   },
                                 )
                               ],
