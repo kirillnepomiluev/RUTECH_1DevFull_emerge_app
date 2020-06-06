@@ -1,8 +1,10 @@
+import 'dart:math';
 
-import 'package:emerge/src/model/channel.dart';
-import 'package:emerge/src/pages/call.dart';
-import 'package:emerge/src/views/views.dart';
+import 'package:emerge/videocalls/model/channel.dart';
+import 'package:emerge/videocalls/pages/call.dart';
+import 'package:emerge/videocalls/views/views.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -41,9 +43,13 @@ class _CreateChannelPageState extends State<CreateChannelPage> {
         ),
         ButtonBlueGradient(
             context,
-            () {
+                () {
               setState(() {
-                addChannel(new Channel(controllerName.text, controllerDesc.text, "id5345"));
+                addChannel(new Channel(
+                    DateTime.now().millisecondsSinceEpoch.toString(), // id
+                    controllerName.text,
+                    controllerDesc.text,
+                    "id" + Random(45).nextInt(45346).toString()));
               });
             },
             btnText: "Создать канал")
@@ -52,16 +58,11 @@ class _CreateChannelPageState extends State<CreateChannelPage> {
   }
 
   void addChannel(Channel channel) async {
-    String id = DateTime.now().millisecondsSinceEpoch.toString();
     await Firestore.instance
         .collection("channels")
-        .document(id)
-        .setData(Map.from({
-          "id": id,
-          "name": channel.name,
-          "description": channel.description,
-          "adminId": channel.adminId})
-    ).then((value) {
+        .document(channel.id)
+        .setData(channel.toJson())
+        .then((value) {
       controllerDesc.text = "";
       controllerName.text = "";
     });
