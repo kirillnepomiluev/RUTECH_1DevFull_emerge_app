@@ -2,7 +2,7 @@
 
 import 'dart:math';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as Mobfirestore;
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
@@ -10,6 +10,8 @@ import 'package:emerge/ui/pages/peoplesList.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../main.dart';
 
 class AbstractRoom extends StatefulWidget {
   String roomPath;
@@ -123,7 +125,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
   void getPeoplesInRoom() async {
     List<dynamic> peoples = new List();
 
-    Firestore.instance.collection("rooms").document(widget.roomPath).collection("peoples").snapshots()
+    Mobfirestore.Firestore.instance.collection("rooms").document(widget.roomPath).collection("peoples").snapshots()
         .listen((snapshot) {
       snapshot.documents.forEach((people) {
         peoples.add(
@@ -134,18 +136,18 @@ class _AbstractRoomState extends State<AbstractRoom> {
       setState(() {
         peoplesInRoom = peoples;
       });
+
+        });
   }
 
   void enterToRoom() async {
-    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-    FirebaseUser user = await firebaseAuth.currentUser();
     String uid = user != null ? user.uid : "id" + Random(44).nextInt(67054).toString();
     var dataToSet = {
       "id" : uid,
       "name" : "UserName" + Random(44).nextInt(67054).toString()
     };
 
-    await Firestore.instance
+    await Mobfirestore.Firestore.instance
         .collection("rooms")
         .document(widget.roomPath)
         .collection("peoples")
