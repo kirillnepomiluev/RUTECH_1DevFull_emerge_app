@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
-import 'package:emerge/ui/pages/utils.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
