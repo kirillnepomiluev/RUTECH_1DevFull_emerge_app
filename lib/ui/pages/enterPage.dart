@@ -1,4 +1,5 @@
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,16 +12,7 @@ class _EnterPageState extends State<EnterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-//          FlatButton(
-//            child: Text('Ресепшн'),
-//            onPressed: (){
-//              Navigator.of(context).pushNamed('/reseptions');
-//            },
-//          )
-        ],
-      ),
+      body: PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,

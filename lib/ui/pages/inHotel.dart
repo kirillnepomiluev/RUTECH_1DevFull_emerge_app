@@ -2,6 +2,7 @@ import 'package:emerge/chart/line_chart.dart';
 import 'package:emerge/locale/app_translations.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:emerge/ui/pages/pamoramawidget.dart';
 
 class InHotel extends StatefulWidget {
   @override
@@ -12,28 +13,7 @@ class InHotel extends StatefulWidget {
 class _InHotelState extends State<InHotel> {
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-          children: <Widget>[
-//            FlatButton(
-//              child: Text('Зеркало'),
-//              onPressed: () {
-//                Navigator.of(context).pushNamed('/mirror');
-//              },
-//            ),
-//            FlatButton(
-//              child: Text('Дверь'),
-//              onPressed: () {
-//                Navigator.of(context).pushNamed('/enterpage');
-//              },
-//            ),
-//            FlatButton(
-//              child: Text('Проверить сумку'),
-//              onPressed: () {
-//                Navigator.of(context).pushNamed('/checkbag');
-//              },
-//            )
-          ],
-        ),
+        body:  PanoramaWidget(photoUrl: "assets/inhotel.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,

@@ -13,10 +13,10 @@ import 'package:sensors/sensors.dart';
 
 
 class PanoramaTest extends StatefulWidget {
-  PanoramaTest({Key key, this.title}) : super(key: key);
+  PanoramaTest({Key key, this.photoUrl}) : super(key: key);
 
-  final String title;
-  PickedFile _image;
+  final String photoUrl;
+
 
   @override
   _PanoramaTestState createState() => _PanoramaTestState();
@@ -83,7 +83,7 @@ class _PanoramaTestState extends State<PanoramaTest> with SingleTickerProviderSt
         controllerthisY: controllerY,
 
 
-        child: _imageFile != null ? Image.file(_imageFile) : Image.asset('assets/panorama.jpg'),
+        child: Image.asset(widget.photoUrl),
       ),
       floatingActionButton: FloatingActionButton(
         mini: true,

@@ -1,4 +1,5 @@
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,34 +12,7 @@ class _loungeRoomState extends State<loungeRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-//          FlatButton(
-//            child: Text('Балкон'),
-//            onPressed: () {
-//              Navigator.of(context).pushNamed('/balcony');
-//            },
-//          ),
-//          FlatButton(
-//            child: Text('Бассейн'),
-//            onPressed: () {
-//              Navigator.of(context).pushNamed('/swimmingpool');
-//            },
-//          ),
-//          FlatButton(
-//            child: Text('Алкогольный бар'),
-//            onPressed: () {
-//              Navigator.of(context).pushNamed('/alcobar');
-//            },
-//          ),
-//          FlatButton(
-//            child: Text('Чайный бар'),
-//            onPressed: () {
-//              Navigator.of(context).pushNamed('/teabar');
-//            },
-//          )
-        ],
-      ),
+      body: PanoramaWidget(photoUrl: "assets/laungh.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
