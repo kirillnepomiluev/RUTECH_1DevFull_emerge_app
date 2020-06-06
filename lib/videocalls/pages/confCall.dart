@@ -16,8 +16,23 @@ class _ConfCallPageState extends State<ConfCallPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Column( mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: widget.members,
+      children:
+     getWidgets()
+
     );
+  }
+
+  getWidgets() {
+    List<Widget> list = [];
+    widget.members.forEach((element) {
+      list.add(
+        Expanded(
+          child: element,
+        )
+      );
+    });
+    return list;
+
   }
 
 }
