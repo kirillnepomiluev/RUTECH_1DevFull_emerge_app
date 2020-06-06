@@ -25,6 +25,7 @@ bool isDarkTheme;
 String currentDeviceId;
 final FirebaseMessaging fcm = FirebaseMessaging();
 
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final FirebaseApp app = await FirebaseApp.configure(
@@ -103,7 +104,7 @@ class _MyAppState extends State<MyApp> {
         const Locale("en", ""),
         const Locale("ru", ""),
       ],
-      initialRoute: '/index',
+      initialRoute: '/aus',
       title: 'Product App',
       theme: CustomTheme.of(context),
       onGenerateRoute: Router.generateRoute,

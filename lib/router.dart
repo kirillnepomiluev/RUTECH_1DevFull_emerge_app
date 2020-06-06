@@ -1,6 +1,10 @@
 
 import 'package:emerge/src/pages/index.dart';
 import 'package:emerge/ui/pages/alcoBar.dart';
+import 'package:emerge/ui/pages/aus.dart';
+import 'package:emerge/ui/pages/ausFacebook.dart';
+import 'package:emerge/ui/pages/ausNumber.dart';
+import 'package:emerge/ui/pages/ausgoogle.dart';
 import 'package:emerge/ui/pages/balcony.dart';
 import 'package:emerge/ui/pages/checkBag.dart';
 import 'package:emerge/ui/pages/checkCard.dart';
@@ -80,6 +84,16 @@ class Router {
         return MaterialPageRoute(builder: (_) => TeaBar());
       case '/index':
         return MaterialPageRoute(builder: (_) => IndexPage());
+
+      case '/aus':
+        return MaterialPageRoute(builder: (_) => Aus());
+      case '/ausfacebok':
+        return MaterialPageRoute(builder: (_) => AusFacebook());
+      case '/ausgoogle':
+        return MaterialPageRoute(builder: (_) => AusGoogle());
+      case '/ausnumber':
+        return MaterialPageRoute(builder: (_) => AusNumber());
+
 
 
 
