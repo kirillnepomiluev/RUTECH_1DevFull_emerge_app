@@ -5,6 +5,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class TeaBar extends StatefulWidget {
   @override
   _TeaBarState createState() => _TeaBarState();
@@ -27,6 +29,7 @@ class _TeaBarState extends State<TeaBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
 
       body: PanoramaWidget(photoUrl: "assets/barzone.jpg",),
         bottomNavigationBar: BottomNavigationBar(

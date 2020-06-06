@@ -4,6 +4,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class SwimmingPool extends StatefulWidget {
   @override
   _SwimmingPoolState createState() => _SwimmingPoolState();
@@ -26,6 +28,7 @@ class _SwimmingPoolState extends State<SwimmingPool> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       appBar: AppBar(title: FlatButton(
         onPressed: (){
           Navigator.pop(context);

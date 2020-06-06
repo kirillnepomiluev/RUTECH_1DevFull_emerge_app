@@ -59,7 +59,7 @@ Future<void> main() async {
   runApp(
     CustomTheme(
       initialThemeKey: isDarkTheme ? MyThemeKeys.DARKFC : MyThemeKeys.LIGHTFC,
-      child: MyAppMain(),
+      child: MyApp(),
     ),
   );
 }
