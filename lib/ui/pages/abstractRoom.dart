@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart' as Mobfirestore;
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
@@ -37,7 +38,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
     super.initState();
     getPeoplesInRoom();
     setRoutes();
-    enterToRoom();
+    enterToRoom(widget.panoramaUrl);
   }
 
   @override
@@ -140,23 +141,6 @@ class _AbstractRoomState extends State<AbstractRoom> {
         });
   }
 
-  void enterToRoom() async {
-    String uid = user != null ? user.uid : "id" + Random(44).nextInt(67054).toString();
-    var dataToSet = {
-      "id" : uid,
-      "name" : (user.displayName != null)?  user.displayName : ("user " + Random(44).nextInt(67054).toString())
-    };
 
-    await Mobfirestore.Firestore.instance
-        .collection("rooms")
-        .document(widget.roomPath)
-        .collection("peoples")
-        .document(uid)
-        .setData(dataToSet);
-
-    setState(() {
-      peoplesInRoom.add(PeoplesInRoom.fromMap(dataToSet));
-    });
-  }
 
 }
