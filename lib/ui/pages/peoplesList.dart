@@ -7,7 +7,7 @@ class PeoplesList extends StatefulWidget {
 
   PeoplesList(this.peoplesInRoom);
 
-  List<List<PeoplesInRoom>> peoplesInRoom = new List();
+  List<PeoplesInRoom> peoplesInRoom = new List();
 
   @override
   _PeoplesListState createState() => _PeoplesListState();
