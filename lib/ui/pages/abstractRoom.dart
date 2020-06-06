@@ -41,17 +41,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
     return Scaffold(
         body: Stack(
           children: [
-            GestureDetector(
-              child: Text("Список людей в комнате"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => PeoplesList(peoplesInRoom),
-                  ),
-                );
-              },
-            ),
+
             PanoramaWidget(photoUrl: widget.panoramaUrl),
           ],
         ),
@@ -96,10 +86,17 @@ class _AbstractRoomState extends State<AbstractRoom> {
                           backgroundColor: prozrachniy,
                         );
                       });};
-//                  break;
-//                case 1:
-//                  _routeName = '/checkbag';
-//                  break;
+                  break;
+                case 1:
+                  {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PeoplesList(peoplesInRoom),
+                      ),
+                    );
+                  }
+                  break;
 //                case 2:
 //                  _routeName = '/reseptions';
 //                  break;
