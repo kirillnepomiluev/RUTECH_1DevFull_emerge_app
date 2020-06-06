@@ -1,6 +1,6 @@
 
 
-import 'package:emerge/src/pages/call.dart';
+import 'package:emerge/videocalls/pages/call.dart';
 
 class Channel {
 

@@ -1,6 +1,6 @@
 
-import 'package:emerge/src/pages/call.dart';
-import 'package:emerge/src/pages/confCall.dart';
+import 'package:emerge/videocalls/pages/call.dart';
+import 'package:emerge/videocalls/pages/confCall.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

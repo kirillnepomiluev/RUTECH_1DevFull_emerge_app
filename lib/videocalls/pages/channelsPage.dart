@@ -1,8 +1,9 @@
 
-import 'package:emerge/src/model/channel.dart';
-import 'package:emerge/src/pages/call.dart';
-import 'package:emerge/src/views/views.dart';
+import 'package:emerge/videocalls//model/channel.dart';
+import 'package:emerge/videocalls//pages/call.dart';
+import 'package:emerge/videocalls//views/views.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
@@ -70,13 +71,14 @@ class _ChannelsPageState extends State<ChannelsPage> {
   }
 
   Future<void> onJoin(Channel channel) async {
-    // await for camera and mic permissions before pushing video page
-    Firestore.instance
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    await Firestore.instance
         .collection("channels")
         .document(channel.id)
-        .updateData(Map.from({
-        "peoples":  FieldValue.arrayUnion(List.unmodifiable([channel.peoples]))
-    }));
+        .collection("peoples")
+        .document(user.uid)
+        .updateData(
+        { "id" : user.uid});
     await _handleCameraAndMic();
     // push video page with given channel.dart name
     await Navigator.push(

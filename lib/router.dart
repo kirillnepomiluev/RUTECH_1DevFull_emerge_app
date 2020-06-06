@@ -1,5 +1,5 @@
 
-import 'package:emerge/src/pages/index.dart';
+import 'package:emerge/videocalls//pages/index.dart';
 import 'package:emerge/ui/pages/alcoBar.dart';
 import 'package:emerge/ui/pages/balcony.dart';
 import 'package:emerge/ui/pages/checkBag.dart';

@@ -1,5 +1,5 @@
 
-import 'package:emerge/src/pages/call.dart';
+import 'package:emerge/videocalls/pages/call.dart';
 import 'package:flutter/cupertino.dart';
 
 class ConfCallPage extends StatefulWidget {
