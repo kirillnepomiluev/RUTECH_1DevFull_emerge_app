@@ -1,6 +1,7 @@
 
 
 
+import 'package:emerge/ui/pages/pamoramaTest.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -34,7 +35,7 @@ class Router {
       case '/image':
         return MaterialPageRoute(builder: (_) => ProfilePage());
       case '/splashPage':
-        return MaterialPageRoute(builder: (_) => ProfilePage());
+        return MaterialPageRoute(builder: (_) => PanoramaTest());
 
       case '/partnerpromotions':
         return MaterialPageRoute(builder: (_) => ProfilePage());
