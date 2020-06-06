@@ -38,7 +38,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
     super.initState();
     getPeoplesInRoom();
     setRoutes();
-    enterToRoom(widget.panoramaUrl);
+    enterToRoom(widget.roomPath);
   }
 
   @override
