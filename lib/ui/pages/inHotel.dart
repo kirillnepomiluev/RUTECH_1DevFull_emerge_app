@@ -1,5 +1,6 @@
 import 'package:emerge/chart/line_chart.dart';
 import 'package:emerge/locale/app_translations.dart';
+import 'package:emerge/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 class InHotel extends StatefulWidget {
@@ -76,27 +77,36 @@ class _InHotelState extends State<InHotel> {
                   {showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          actions: [
-                            FlatButton(
-                              child: Text('Зеркало'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/mirror');
-                              },
+                        return Dialog(
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                FlatButton(
+                                  child: Text('Зеркало'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed('/mirror');
+                                  },
+                                ),
+                                FlatButton(
+                                  child: Text('Дверь'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed('/enterpage');
+                                  },
+                                ),
+                                FlatButton(
+                                  child: Text('Проверить сумку'),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed('/checkbag');
+                                  },
+                                )
+                              ],
                             ),
-                            FlatButton(
-                              child: Text('Дверь'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/enterpage');
-                              },
-                            ),
-                            FlatButton(
-                              child: Text('Проверить сумку'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/checkbag');
-                              },
-                            )
-                          ],
+                          ),
+                          backgroundColor: prozrachniy,
                         );
                       });};
 //                  break;

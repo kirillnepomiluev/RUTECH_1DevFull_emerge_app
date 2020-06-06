@@ -1,3 +1,4 @@
+import 'package:emerge/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -87,27 +88,51 @@ class _SwimmingPoolState extends State<SwimmingPool> {
                  {showDialog(
                      context: context,
                      builder: (BuildContext context) {
-                       return AlertDialog(
-                         actions: [
-                           FlatButton(
-                             child: Text('Зеркало'),
-                             onPressed: () {
-                               Navigator.of(context).pushNamed('/mirror');
-                             },
+                       return Dialog(
+                         child: Container(
+                           child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.center,
+                             children: <Widget>[
+                               FlatButton(
+                                 child: Text('Лаундж комната'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/loungeRoom');
+                                 },
+                               ),
+                               FlatButton(
+                                 child: Text('Балкон'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/balcony');
+                                 },
+                               ),
+                               FlatButton(
+                                 child: Text('Алкогольный бар'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/alcobar');
+                                 },
+                               ),
+                               FlatButton(
+                                 child: Text('Чайный бар'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/teabar');
+                                 },
+                               ),
+                               FlatButton(
+                                 child: Text('На ресепшн'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/reseptions');
+                                 },
+                               ),
+                               FlatButton(
+                                 child: Text('Домой'),
+                                 onPressed: () {
+                                   Navigator.of(context).pushNamed('/inhotel');
+                                 },
+                               )
+                             ],
                            ),
-                           FlatButton(
-                             child: Text('Дверь'),
-                             onPressed: () {
-                               Navigator.of(context).pushNamed('/enterpage');
-                             },
-                           ),
-                           FlatButton(
-                             child: Text('Проверить сумку'),
-                             onPressed: () {
-                               Navigator.of(context).pushNamed('/checkbag');
-                             },
-                           )
-                         ],
+                         ),
+                         backgroundColor: prozrachniy,
                        );
                      });};
 //                  break;

@@ -33,6 +33,7 @@ const myprofiletextdark = const Color(0xFF818181); //надпись "Мой пр
 const greybottondark = const Color(0xFFBEBEBE); // серые кнопки
 const greyborderdark = const Color(0xFFCBCBCB); // серые бортики текст филдов
 const greytextbodydark = const Color(0xFFF5F5F5); // текст боди основной цвет
+const prozrachniy = const Color(0x20F5F5F5); // текст боди основной цвет
 //const bluebottondark = const Color(linear-gradient(108.97deg, #147DE1 -13.75%, #1B5E9E 102.11%)); // синие кнопки с градиентом
 //общее
 const redSelected = const Color(0xFFFF0000); // те

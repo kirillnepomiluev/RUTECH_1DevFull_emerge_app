@@ -1,3 +1,4 @@
+import 'package:emerge/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -65,27 +66,28 @@ class _EnterPageState extends State<EnterPage> {
                   {showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialog(
-                          actions: [
-                            FlatButton(
-                              child: Text('Зеркало'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/mirror');
-                              },
+                        return Dialog(
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                FlatButton(
+                                  child: Text("Ресепшн"),
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .pushNamed('/reseptions');
+                                  },
+                                ),
+                                FlatButton(
+                                  child: Text('Домой'),
+                                  onPressed: () {
+                                    Navigator.of(context).pushNamed('/inhotel');
+                                  },
+                                )
+                              ],
                             ),
-                            FlatButton(
-                              child: Text('Дверь'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/enterpage');
-                              },
-                            ),
-                            FlatButton(
-                              child: Text('Проверить сумку'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/checkbag');
-                              },
-                            )
-                          ],
+                          ),
+                          backgroundColor: prozrachniy,
                         );
                       });};
 //                  break;

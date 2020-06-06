@@ -1,3 +1,4 @@
+import 'package:emerge/themes/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,61 +11,50 @@ class _AlcoBarState extends State<AlcoBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: FlatButton(
-        onPressed: (){
-          Navigator.pop(context);
-        },
-      ),
-      ),
-      body: Column(
-        children: <Widget>[
-          FlatButton(
-            child: Text('Лаундж комната'),
+        appBar: AppBar(
+          title: FlatButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/loungeRoom');
+              Navigator.pop(context);
             },
           ),
-          FlatButton(
-            child: Text('Балкон'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/balcony');
-            },
-          ),
-          FlatButton(
-            child: Text('Бассейн'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/swimmingpool');
-            },
-          ),
-          FlatButton(
-            child: Text('Чайный бар'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/teabar');
-            },
-          )
-        ],
-      ),
+        ),
+        body: Column(
+          children: <Widget>[
+            FlatButton(
+              child: Text('Лаундж комната'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/loungeRoom');
+              },
+            ),
+            FlatButton(
+              child: Text('Балкон'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/balcony');
+              },
+            ),
+            FlatButton(
+              child: Text('Бассейн'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/swimmingpool');
+              },
+            ),
+            FlatButton(
+              child: Text('Чайный бар'),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/teabar');
+              },
+            )
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
             unselectedItemColor:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelColor,
-            selectedItemColor: Theme
-                .of(context)
-                .tabBarTheme
-                .labelColor,
-            selectedLabelStyle: Theme
-                .of(context)
-                .tabBarTheme
-                .labelStyle,
+                Theme.of(context).tabBarTheme.unselectedLabelColor,
+            selectedItemColor: Theme.of(context).tabBarTheme.labelColor,
+            selectedLabelStyle: Theme.of(context).tabBarTheme.labelStyle,
             unselectedLabelStyle:
-            Theme
-                .of(context)
-                .tabBarTheme
-                .unselectedLabelStyle,
+                Theme.of(context).tabBarTheme.unselectedLabelStyle,
             showUnselectedLabels: true,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -84,32 +74,59 @@ class _AlcoBarState extends State<AlcoBar> {
               String _routeName;
               switch (index) {
                 case 0:
-                  {showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          actions: [
-                            FlatButton(
-                              child: Text('Зеркало'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/mirror');
-                              },
+                  {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            child: Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  FlatButton(
+                                    child: Text('Лаундж комната'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/loungeRoom');
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: Text('Балкон'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/balcony');
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: Text('Бассейн'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/swimmingpool');
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: Text('Чайный бар'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/teabar');
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: Text('На ресепшн'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/reseptions');
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: Text('Домой'),
+                                    onPressed: () {
+                                      Navigator.of(context).pushNamed('/inhotel');
+                                    },
+                                  )
+                                ],
+                              ),
                             ),
-                            FlatButton(
-                              child: Text('Дверь'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/enterpage');
-                              },
-                            ),
-                            FlatButton(
-                              child: Text('Проверить сумку'),
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/checkbag');
-                              },
-                            )
-                          ],
-                        );
-                      });};
+                            backgroundColor: prozrachniy,
+                          );
+                        });
+                  }
+                  ;
 //                  break;
 //                case 1:
 //                  _routeName = '/checkbag';
@@ -119,8 +136,6 @@ class _AlcoBarState extends State<AlcoBar> {
 //                  break;
               }
               Navigator.pushNamed(context, _routeName);
-            })
-
-    );
+            }));
   }
 }
