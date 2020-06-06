@@ -1,5 +1,7 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as MobFirebaseFirestore;
+import 'package:firebase/firebase.dart' as WebFirebase;
+import 'package:firebase/firestore.dart' as WebFirestore;
 import 'package:emerge/ui/widgets/MyCard.dart';
 import 'package:firebase_image/firebase_image.dart';
 import 'package:flutter/material.dart';
