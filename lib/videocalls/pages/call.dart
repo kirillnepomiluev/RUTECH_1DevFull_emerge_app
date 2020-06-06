@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:emerge/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/settings.dart';
@@ -156,11 +157,13 @@ class _CallPageState extends State<CallPage> {
     switch (views.length) {
       case 1:
         return Container(
+            color: prozrachniy,
             child: Column(
           children: <Widget>[_videoView(views[0])],
         ));
       case 2:
         return Container(
+          color: prozrachniy,
             child: Column(
           children: <Widget>[
             _expandedVideoRow([views[0]]),
@@ -169,6 +172,7 @@ class _CallPageState extends State<CallPage> {
         ));
       case 3:
         return Container(
+            color: prozrachniy,
             child: Column(
           children: <Widget>[
             _expandedVideoRow(views.sublist(0, 2)),
@@ -177,6 +181,7 @@ class _CallPageState extends State<CallPage> {
         ));
       case 4:
         return Container(
+            color: prozrachniy,
             child: Column(
           children: <Widget>[
             _expandedVideoRow(views.sublist(0, 2)),
@@ -241,11 +246,13 @@ class _CallPageState extends State<CallPage> {
   /// Info panel to show logs
   Widget _panel() {
     return Container(
+      color: prozrachniy,
       padding: const EdgeInsets.symmetric(vertical: 48),
       alignment: Alignment.bottomCenter,
       child: FractionallySizedBox(
         heightFactor: 0.5,
         child: Container(
+          color: prozrachniy,
           padding: const EdgeInsets.symmetric(vertical: 48),
           child: ListView.builder(
             reverse: true,
@@ -269,13 +276,10 @@ class _CallPageState extends State<CallPage> {
                           horizontal: 5,
                         ),
                         decoration: BoxDecoration(
-                          color: Colors.yellowAccent,
+                          color: prozrachniy,
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Text(
-                          _infoStrings[index],
-                          style: TextStyle(color: Colors.blueGrey),
-                        ),
+                        child: Container()
                       ),
                     )
                   ],
@@ -306,10 +310,7 @@ class _CallPageState extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Agora Flutter QuickStart'),
-      ),
-      backgroundColor: Colors.black,
+      backgroundColor: prozrachniy,
       body: Center(
         child: Stack(
           children: <Widget>[

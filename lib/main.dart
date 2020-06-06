@@ -1,7 +1,7 @@
 
 
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as Mobfirestore;
 import 'package:emerge/router.dart';
 import 'package:emerge/themes/custom_theme.dart';
 import 'package:emerge/themes/themes.dart';
@@ -16,7 +16,7 @@ import 'locale/app_translations_delegate.dart';
 import 'locale/application.dart';
 
 
-Firestore firestore = Firestore.instance;
+Mobfirestore.Firestore firestore = Mobfirestore.Firestore.instance;
 SharedPreferences prefs;
 FirebaseUser user;
 FirebaseDatabase database;
