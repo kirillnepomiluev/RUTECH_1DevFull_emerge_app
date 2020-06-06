@@ -15,7 +15,7 @@ class _ConfCallPageState extends State<ConfCallPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Stack(
+    return Column(
       children: widget.members,
     );
   }

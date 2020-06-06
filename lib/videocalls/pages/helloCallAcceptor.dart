@@ -4,6 +4,7 @@ import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import 'call.dart';
 import 'confCall.dart';
 
@@ -41,8 +42,8 @@ class _HelloCallAcceptorWidgetState extends State<HelloCallAcceptorWidget> {
                     MaterialPageRoute(
                       builder: (context) => ConfCallPage(
                           [
-                            CallPage(channelName: "UserId", role: ClientRole.Broadcaster),
-                            CallPage(channelName: widget.interlocutorId, role: ClientRole.Broadcaster),
+                            CallPage(channelName: user.uid, role: ClientRole.Broadcaster),
+                            CallPage(channelName: widget.interlocutorId, role: ClientRole.Audience),
                           ]
                       ),
                     )
