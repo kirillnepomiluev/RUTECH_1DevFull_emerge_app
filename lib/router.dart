@@ -72,7 +72,7 @@ class Router {
         return MaterialPageRoute(builder: (_) => CheckCard());
 
       case '/reseptions':
-        return MaterialPageRoute(builder: (_) => AbstractRoom("reseptions",  "assets/central.jpg"));
+        return MaterialPageRoute(builder: (_) => AbstractRoom("reception",  "assets/central.jpg"));
       case '/loungeRoom':
         return MaterialPageRoute(builder: (_) => loungeRoom());
       case '/balcony':

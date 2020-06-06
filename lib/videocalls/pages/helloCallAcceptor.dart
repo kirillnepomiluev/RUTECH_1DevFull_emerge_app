@@ -11,6 +11,7 @@ import 'confCall.dart';
 class HelloCallAcceptorWidget extends StatefulWidget {
 
   String interlocutorId;
+  HelloCallAcceptorWidget(this.interlocutorId);
 
   @override
   _HelloCallAcceptorWidgetState createState() => _HelloCallAcceptorWidgetState();
