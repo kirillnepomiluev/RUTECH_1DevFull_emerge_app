@@ -80,14 +80,39 @@ class _ReseptionsState extends State<Reseptions> {
               String _routeName;
               switch (index) {
                 case 0:
-                  _routeName = '/inhotel';
-                  break;
-                case 1:
-                  _routeName = '/checkbag';
-                  break;
-                case 2:
-                  _routeName = '/reseptions';
-                  break;
+                  {showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          actions: [
+                            FlatButton(
+                              child: Text('Зеркало'),
+                              onPressed: () {
+                                Navigator.of(context).pushNamed('/mirror');
+                              },
+                            ),
+                            FlatButton(
+                              child: Text('Дверь'),
+                              onPressed: () {
+                                Navigator.of(context).pushNamed('/enterpage');
+                              },
+                            ),
+                            FlatButton(
+                              child: Text('Проверить сумку'),
+                              onPressed: () {
+                                Navigator.of(context).pushNamed('/checkbag');
+                              },
+                            )
+                          ],
+                        );
+                      });};
+//                  break;
+//                case 1:
+//                  _routeName = '/checkbag';
+//                  break;
+//                case 2:
+//                  _routeName = '/reseptions';
+//                  break;
               }
               Navigator.pushNamed(context, _routeName);
             })
