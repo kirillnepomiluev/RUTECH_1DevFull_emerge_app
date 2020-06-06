@@ -55,3 +55,14 @@ void exitFromRoom(String room) async {
         .delete();
   }
 }
+
+void deleteRequests() async {
+  String uid = user != null ? user.uid : "";
+
+  if (uid != "") {
+    await Mobfirestore.Firestore.instance
+        .collection("users")
+        .document(user.uid)
+        .delete();
+  }
+}

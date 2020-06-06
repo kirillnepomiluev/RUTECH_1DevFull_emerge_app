@@ -67,9 +67,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
               snapshot.data.documents.forEach((doc) {
                 listDialogs.add(doc.data);
               });
-
               return ListView.builder(
-
                 scrollDirection: Axis.horizontal,
                 itemCount: listDialogs.length,
                   itemBuilder: (context, item) {

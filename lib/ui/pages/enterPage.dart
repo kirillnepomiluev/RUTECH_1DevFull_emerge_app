@@ -2,9 +2,12 @@ import 'package:emerge/core/funcs.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
+import 'package:emerge/ui/widgets/Biedgikpage.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
+import 'package:emerge/videocalls/pages/helloCallAcceptor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../main.dart';
 
 import '../../main.dart';
 
@@ -41,7 +44,6 @@ class _EnterPageState extends State<EnterPage> {
     // TODO: implement initState
     super.initState();
     enterToRoom("door");
-    getPeoplesInRoom();
   }
 
   @override
@@ -49,6 +51,44 @@ class _EnterPageState extends State<EnterPage> {
     return Scaffold(
         floatingActionButton: mirror,
       body: PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
+      body: Stack(
+        children: [
+          PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
+          StreamBuilder(stream: firestore.collection("users").document(user.uid).collection("chats").snapshots(),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (!snapshot.hasData) {
+                return Container() ;
+              }
+
+              if (snapshot.data.documents.length ==0) {
+                return Container() ;
+              }
+              List<Map<String, dynamic>> listDialogs = [];
+              snapshot.data.documents.forEach((doc) {
+                listDialogs.add(doc.data);
+              });
+              return ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: listDialogs.length,
+                  itemBuilder: (context, item) {
+                    Map<String, dynamic> callData =   listDialogs[item];
+                    return  Container(padding: EdgeInsets.all(20.0),
+                        child: FlatButton(onPressed: () {
+                          showDialog(context: context, child: Dialog(
+                            backgroundColor: prozrachniy,
+                            child: HelloCallAcceptorWidget(callData["ids"][0]),));
+                        },
+                          child: BiedgikPage({
+                            "name" : callData["name"]
+                          }),)
+
+                    );
+                  });
+
+
+            },)
+        ],
+      ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
