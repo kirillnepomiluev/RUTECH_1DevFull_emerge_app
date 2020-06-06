@@ -40,6 +40,7 @@ class _loungeRoomState extends State<loungeRoom> {
     // TODO: implement initState
     super.initState();
     enterToRoom("lounge");
+    getPeoplesInRoom();
   }
 
   @override

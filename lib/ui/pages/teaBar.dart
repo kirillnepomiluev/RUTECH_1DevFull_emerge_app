@@ -41,6 +41,7 @@ class _TeaBarState extends State<TeaBar> {
     // TODO: implement initState
     super.initState();
     enterToRoom("teabar");
+    getPeoplesInRoom();
   }
 
   @override

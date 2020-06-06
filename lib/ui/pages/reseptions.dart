@@ -45,6 +45,7 @@ class _ReseptionsState extends State<Reseptions> {
     // TODO: implement initState
     super.initState();
     enterToRoom("reseptions");
+    getPeoplesInRoom();
   }
 
   @override

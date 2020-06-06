@@ -44,6 +44,7 @@ class _InHotelState extends State<InHotel> {
     // TODO: implement initState
     super.initState();
     enterToRoom("hotel");
+    getPeoplesInRoom();
   }
 
   @override

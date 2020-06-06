@@ -39,6 +39,7 @@ class _SwimmingPoolState extends State<SwimmingPool> {
     // TODO: implement initState
     super.initState();
     enterToRoom("swimmingpool");
+    getPeoplesInRoom();
   }
 
   @override

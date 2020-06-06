@@ -40,6 +40,7 @@ class _BalconyState extends State<Balcony> {
     // TODO: implement initState
     super.initState();
     enterToRoom("balcony");
+    getPeoplesInRoom();
   }
 
   @override

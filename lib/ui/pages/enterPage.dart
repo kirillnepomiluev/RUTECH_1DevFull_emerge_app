@@ -41,6 +41,7 @@ class _EnterPageState extends State<EnterPage> {
     // TODO: implement initState
     super.initState();
     enterToRoom("door");
+    getPeoplesInRoom();
   }
 
   @override
