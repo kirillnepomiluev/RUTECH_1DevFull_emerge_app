@@ -60,23 +60,23 @@ class _CheckCardState extends State<CheckCard> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                FlatButton(
-                                  child: Text('Зеркало'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Зеркало',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/mirror');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Дверь'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Дверь',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/enterpage');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Проверить сумку'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Проверить сумку',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/checkbag');
                                   },
