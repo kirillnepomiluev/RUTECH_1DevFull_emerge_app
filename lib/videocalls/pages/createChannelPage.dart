@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:emerge/videocalls/model/channel.dart';
 import 'package:emerge/videocalls/pages/call.dart';
 import 'package:emerge/videocalls/views/views.dart';
@@ -44,7 +46,11 @@ class _CreateChannelPageState extends State<CreateChannelPage> {
             context,
             () {
               setState(() {
-                addChannel(new Channel(controllerName.text, controllerDesc.text, "id5345"));
+                addChannel(new Channel(
+                                DateTime.now().millisecondsSinceEpoch.toString(), // id
+                                controllerName.text,
+                                controllerDesc.text,
+                                "id" + Random(45).nextInt(45346).toString()));
               });
             },
             btnText: "Создать канал")
@@ -53,15 +59,10 @@ class _CreateChannelPageState extends State<CreateChannelPage> {
   }
 
   void addChannel(Channel channel) async {
-    String id = DateTime.now().millisecondsSinceEpoch.toString();
-    FirebaseUser user = await FirebaseAuth.instance.currentUser();
     await Firestore.instance
         .collection("channels")
-        .document(id)
-        .collection("peoples")
-        .document(user.uid)
-        .updateData(
-         { "id" : user.uid})
+        .document(channel.id)
+        .setData(channel.toJson())
         .then((value) {
       controllerDesc.text = "";
       controllerName.text = "";

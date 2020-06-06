@@ -11,7 +11,7 @@ class Channel {
   List<CallPage> peoples = new List();
 
 
-  Channel(this.name, this.description, this.adminId);
+  Channel(this.id, this.name, this.description, this.adminId);
 
   Channel.fromMap(Map snapshot)
       :
@@ -22,6 +22,7 @@ class Channel {
 
   toJson() {
     return {
+      "id" : id,
       "name": name,
       "description": description,
       "adminId": adminId,

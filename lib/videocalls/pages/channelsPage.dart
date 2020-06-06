@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:emerge/videocalls//model/channel.dart';
 import 'package:emerge/videocalls//pages/call.dart';
 import 'package:emerge/videocalls//views/views.dart';
@@ -20,6 +22,7 @@ class ChannelsPage extends StatefulWidget {
 
 class _ChannelsPageState extends State<ChannelsPage> {
   List<Widget> _singleItemWidgetList = new List();
+  List<Channel> _channelsList = new List();
 
   @override
   void initState() {
@@ -58,27 +61,31 @@ class _ChannelsPageState extends State<ChannelsPage> {
 
   void getChannels() async {
     List<Widget> singleItemWidgetList = new List();
+    List<Channel> channelsList = new List();
     Firestore.instance.collection("channels").snapshots()
         .listen((snapshot) {
       snapshot.documents.forEach((ch) {
         Channel channel = Channel.fromMap(ch.data);
         singleItemWidgetList.add(singleItem(channel));
+        channelsList.add(channel);
       });
       setState(() {
         _singleItemWidgetList = singleItemWidgetList;
+        _channelsList = channelsList;
       });
     });
   }
 
   Future<void> onJoin(Channel channel) async {
     FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    String uid = user != null ? user.uid : "id" + Random(45).nextInt(45346).toString();
     await Firestore.instance
         .collection("channels")
         .document(channel.id)
         .collection("peoples")
-        .document(user.uid)
-        .updateData(
-        { "id" : user.uid});
+        .document(uid)
+        .setData(
+        { "id" : uid});
     await _handleCameraAndMic();
     // push video page with given channel.dart name
     await Navigator.push(
