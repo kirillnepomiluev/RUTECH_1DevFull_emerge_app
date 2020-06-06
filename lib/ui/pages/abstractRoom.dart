@@ -144,7 +144,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
     String uid = user != null ? user.uid : "id" + Random(44).nextInt(67054).toString();
     var dataToSet = {
       "id" : uid,
-      "name" : user.displayName != null?  user.displayName :"user " + Random(44).nextInt(67054).toString();
+      "name" : (user.displayName != null)?  user.displayName : ("user " + Random(44).nextInt(67054).toString())
     };
 
     await Mobfirestore.Firestore.instance
