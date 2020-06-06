@@ -98,7 +98,7 @@ class _AusState extends State<Aus> {
             myGradientButton(context,
               btnText: "Google",
               funk: (){
-                Navigator.of(context).pushNamed("/inhotel");
+                _signInWithGoogle();
               }
             ),
             myGradientButton(context,
