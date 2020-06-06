@@ -1,4 +1,5 @@
 
+import 'package:emerge/ui/pages/abstractRoom.dart';
 import 'package:emerge/videocalls/pages/index.dart';
 import 'package:emerge/ui/pages/alcoBar.dart';
 import 'package:emerge/ui/pages/aus.dart';
@@ -71,7 +72,7 @@ class Router {
         return MaterialPageRoute(builder: (_) => CheckCard());
 
       case '/reseptions':
-        return MaterialPageRoute(builder: (_) => Reseptions());
+        return MaterialPageRoute(builder: (_) => AbstractRoom("reseptions",  "assets/central.jpg"));
       case '/loungeRoom':
         return MaterialPageRoute(builder: (_) => loungeRoom());
       case '/balcony':

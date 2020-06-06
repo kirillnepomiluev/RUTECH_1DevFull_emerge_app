@@ -4,18 +4,22 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
+import 'package:emerge/ui/pages/peoplesList.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AbstractRoom extends StatefulWidget {
+  String roomPath;
+  String panoramaUrl;
+
+  AbstractRoom(this.roomPath, this.panoramaUrl);
+
   @override
   _AbstractRoomState createState() => _AbstractRoomState();
 }
 
 class _AbstractRoomState extends State<AbstractRoom> {
-  String roomPath;
-  String panoramaUrl;
   List<List<PeoplesInRoom>> peoplesInRoom = new List();
   List<Widget> routesWidget = new List();
 
@@ -35,10 +39,20 @@ class _AbstractRoomState extends State<AbstractRoom> {
   Widget build(BuildContext context) {
     debugPrint("peoplesInRoom" + peoplesInRoom.toString());
     return Scaffold(
-        body: Column(
+        body: Stack(
           children: [
-            PanoramaWidget(photoUrl: panoramaUrl,)
-
+            GestureDetector(
+              child: Text("Список людей в комнате"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PeoplesList(peoplesInRoom),
+                  ),
+                );
+              },
+            ),
+            PanoramaWidget(photoUrl: widget.panoramaUrl),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
@@ -98,7 +112,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
 
   List<Widget> setRoutes() {
     routes.forEach((element) {
-      if (element.values.first != roomPath) {
+      if (element.values.first != widget.roomPath) {
         routesWidget.add(
             myGradientButton(context,
               btnText: element.keys.first,
@@ -114,7 +128,7 @@ class _AbstractRoomState extends State<AbstractRoom> {
   void getPeoplesInRoom() async {
     List<List<dynamic>> peoples = new List();
     List<List<PeoplesInRoom>> groupPeoplesInRoom = new List();
-    Firestore.instance.collection("rooms").document(roomPath).collection("peoples").snapshots()
+    Firestore.instance.collection("rooms").document(widget.roomPath).collection("peoples").snapshots()
         .listen((snapshot) {
       snapshot.documents.forEach((people) {
         peoples.add(
