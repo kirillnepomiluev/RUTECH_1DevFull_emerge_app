@@ -1,10 +1,14 @@
 
 
 import 'dart:io';
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' as Mobfirestore;
 import 'package:emerge/router.dart';
 import 'package:emerge/themes/custom_theme.dart';
 import 'package:emerge/themes/themes.dart';
+import 'package:emerge/ui/pages/aus.dart';
+import 'package:emerge/ui/widgets/Circle.dart';
+import 'package:emerge/videocalls/pages/call.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -55,10 +59,38 @@ Future<void> main() async {
   runApp(
     CustomTheme(
       initialThemeKey: isDarkTheme ? MyThemeKeys.DARKFC : MyThemeKeys.LIGHTFC,
-      child: MyApp(),
+      child: MyAppMain(),
     ),
   );
 }
+State mainState;
+Widget mirror = MyMirror();
+class MyMirror extends StatefulWidget {
+
+
+  @override
+  MyMirrorState createState() {
+    mainState = MyMirrorState();
+   return mainState;
+  }
+}
+class MyMirrorState extends State<MyMirror> {
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return  FloatingActionButton(onPressed: () {  },
+          child: Container( child: (user==null)? Container() : CallPage(channelName: user.uid, role: ClientRole.Broadcaster)) ,
+        );
+  }
+}
+
 
 class MyApp extends StatefulWidget {
   @override
@@ -104,7 +136,7 @@ class _MyAppState extends State<MyApp> {
         const Locale("en", ""),
         const Locale("ru", ""),
       ],
-      initialRoute: '/aus',
+      initialRoute: '/inhotel',
       title: 'Product App',
       theme: CustomTheme.of(context),
       onGenerateRoute: Router.generateRoute,

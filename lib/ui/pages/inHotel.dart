@@ -6,6 +6,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/material.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
 
+import '../../main.dart';
+
 class InHotel extends StatefulWidget {
   @override
   _InHotelState createState() => _InHotelState();
@@ -29,6 +31,7 @@ class _InHotelState extends State<InHotel> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+       floatingActionButton: mirror,
         body:  PanoramaWidget(photoUrl: "assets/inhotel.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

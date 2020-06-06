@@ -3,6 +3,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class CheckBag extends StatefulWidget {
   @override
   _CheckBagState createState() => _CheckBagState();
@@ -12,6 +14,7 @@ class _CheckBagState extends State<CheckBag> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       body: Center(
         child: Row(
             children: <Widget>[

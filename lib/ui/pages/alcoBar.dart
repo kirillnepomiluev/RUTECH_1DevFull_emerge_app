@@ -4,6 +4,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class AlcoBar extends StatefulWidget {
   @override
   _AlcoBarState createState() => _AlcoBarState();
@@ -26,6 +28,7 @@ class _AlcoBarState extends State<AlcoBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
         body: Column(
           children: <Widget>[
 //            FlatButton(

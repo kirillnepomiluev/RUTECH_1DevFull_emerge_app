@@ -5,6 +5,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class EnterPage extends StatefulWidget {
   @override
   _EnterPageState createState() => _EnterPageState();
@@ -22,6 +24,7 @@ class _EnterPageState extends State<EnterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       body: PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

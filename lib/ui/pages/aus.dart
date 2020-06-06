@@ -41,6 +41,7 @@ class _AusState extends State<Aus> {
         _userID = _user.uid;
         user = _user;
         Navigator.of(context).pushNamed("/inhotel");
+        mainState.setState(() { user = _user; });
       } else {
         _success = false;
       }

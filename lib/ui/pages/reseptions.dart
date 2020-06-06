@@ -9,6 +9,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class Reseptions extends StatefulWidget {
   @override
   _ReseptionsState createState() => _ReseptionsState();
@@ -34,6 +36,7 @@ class _ReseptionsState extends State<Reseptions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       body: PanoramaWidget(photoUrl: "assets/central.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

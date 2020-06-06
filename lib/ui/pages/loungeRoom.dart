@@ -5,6 +5,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class loungeRoom extends StatefulWidget {
   @override
   _loungeRoomState createState() => _loungeRoomState();
@@ -27,6 +29,7 @@ class _loungeRoomState extends State<loungeRoom> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       body: PanoramaWidget(photoUrl: "assets/laungh.jpg",),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,

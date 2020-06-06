@@ -4,6 +4,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class Balcony extends StatefulWidget {
   @override
   _BalconyState createState() => _BalconyState();
@@ -26,6 +28,7 @@ class _BalconyState extends State<Balcony> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
       appBar: AppBar(title: FlatButton(
         onPressed: (){
           Navigator.pop(context);

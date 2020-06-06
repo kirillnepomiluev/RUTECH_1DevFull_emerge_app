@@ -4,6 +4,8 @@ import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class CheckTicket extends StatefulWidget{
   @override
   _CheckTicketState createState() => _CheckTicketState();
@@ -13,6 +15,7 @@ class _CheckTicketState extends State<CheckTicket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: mirror,
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
