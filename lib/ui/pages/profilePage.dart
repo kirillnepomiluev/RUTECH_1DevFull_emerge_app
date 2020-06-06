@@ -47,6 +47,5 @@ class _ProfilePageState extends State<ProfilePage> {
        ),
 
     );
-    throw UnimplementedError();
   }
 }
