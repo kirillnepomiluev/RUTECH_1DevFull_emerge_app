@@ -66,15 +66,15 @@ class _CheckBagState extends State<CheckBag> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                FlatButton(
-                                  child: Text("билет"),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: "билет",
+                                  funk: () {
                                     Navigator.of(context).pushNamed('/checkticket');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text("карту"),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: "карту",
+                                  funk: () {
                                     Navigator.of(context).pushNamed('/сheckсard');
                                   },
                                 ),

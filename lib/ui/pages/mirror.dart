@@ -1,6 +1,7 @@
 
 
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -68,23 +69,23 @@ class _MirrorState extends State<Mirror> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                FlatButton(
-                                  child: Text('Дверь'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Дверь',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/enterpage');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Проверить сумку'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Проверить сумку',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/checkbag');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Домой'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Домой',
+                                  funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
                                   },
                                 )

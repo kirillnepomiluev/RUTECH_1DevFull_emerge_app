@@ -1,6 +1,7 @@
 import 'package:emerge/chart/line_chart.dart';
 import 'package:emerge/locale/app_translations.dart';
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/material.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
 
@@ -62,23 +63,23 @@ class _InHotelState extends State<InHotel> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
-                                FlatButton(
-                                  child: Text('Зеркало'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Зеркало',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/mirror');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Дверь'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Дверь',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/enterpage');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Проверить сумку'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: 'Проверить сумку',
+                                  funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/checkbag');
                                   },
