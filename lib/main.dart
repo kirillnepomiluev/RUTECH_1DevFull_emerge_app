@@ -5,7 +5,7 @@ import 'dart:io';
 import 'package:emerge/router.dart';
 import 'package:emerge/themes/custom_theme.dart';
 import 'package:emerge/themes/themes.dart';
-import 'package:firebase/firestore.dart';
+import 'package:firebase/firestore.dart' as WebFirestore;
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase/firebase.dart' as WebFirebase;

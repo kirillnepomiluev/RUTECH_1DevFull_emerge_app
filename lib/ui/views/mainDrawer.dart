@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as MobFirebaseFirestore;
 import 'package:emerge/locale/app_translations.dart';
 import 'package:emerge/ui/widgets/MyCard.dart';
 import 'package:firebase_image/firebase_image.dart';
