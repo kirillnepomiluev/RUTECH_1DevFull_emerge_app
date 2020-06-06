@@ -1,4 +1,5 @@
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -77,9 +78,9 @@ class _CheckBagState extends State<CheckBag> {
                                     Navigator.of(context).pushNamed('/сheckсard');
                                   },
                                 ),
-                                FlatButton(
-                                  child: Text('Домой'),
-                                  onPressed: () {
+                                myGradientButton(context,
+                                  btnText: "Домой",
+                                  funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
                                   },
                                 )

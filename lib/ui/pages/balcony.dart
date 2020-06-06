@@ -1,4 +1,5 @@
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -117,15 +118,15 @@ class _BalconyState extends State<Balcony> {
                                    Navigator.of(context).pushNamed('/teabar');
                                  },
                                ),
-                               FlatButton(
-                                 child: Text('На ресепшн'),
-                                 onPressed: () {
+                               myGradientButton(context,
+                                 btnText: "На расепшн",
+                                 funk: () {
                                    Navigator.of(context).pushNamed('/reseptions');
                                  },
                                ),
-                               FlatButton(
-                                 child: Text('Домой'),
-                                 onPressed: () {
+                               myGradientButton(context,
+                                 btnText: "Домой",
+                                 funk: () {
                                    Navigator.of(context).pushNamed('/inhotel');
                                  },
                                )

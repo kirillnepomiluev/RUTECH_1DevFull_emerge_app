@@ -1,4 +1,5 @@
 import 'package:emerge/themes/colors.dart';
+import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,13 +12,6 @@ class _AlcoBarState extends State<AlcoBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
         body: Column(
           children: <Widget>[
 //            FlatButton(
@@ -83,39 +77,39 @@ class _AlcoBarState extends State<AlcoBar> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  FlatButton(
-                                    child: Text('Лаундж комната'),
-                                    onPressed: () {
-                                      Navigator.of(context).pushNamed('/loungeRoom');
-                                    },
+                                  myGradientButton(context,
+                                    btnText: "Комната отдыха",
+                                    funk: () {
+                                      Navigator.of(context).pushNamed(
+                                          '/loungeRoom');
+                                    }
                                   ),
-                                  FlatButton(
-                                    child: Text('Балкон'),
-                                    onPressed: () {
-                                      Navigator.of(context).pushNamed('/balcony');
-                                    },
+                                  myGradientButton(context,
+                                    btnText: "Балкон",
+                                    funk: () {  Navigator.of(context).pushNamed('/balcony');
+                                    }
                                   ),
-                                  FlatButton(
-                                    child: Text('Бассейн'),
-                                    onPressed: () {
+                                  myGradientButton(context,
+                                    btnText: "Бассейн",
+                                    funk: () {
                                       Navigator.of(context).pushNamed('/swimmingpool');
                                     },
                                   ),
-                                  FlatButton(
-                                    child: Text('Чайный бар'),
-                                    onPressed: () {
+                                  myGradientButton(context,
+                                    btnText: "Чайный бар",
+                                    funk: () {
                                       Navigator.of(context).pushNamed('/teabar');
                                     },
                                   ),
-                                  FlatButton(
-                                    child: Text('На ресепшн'),
-                                    onPressed: () {
+                                  myGradientButton(context,
+                                    btnText: "На расепшн",
+                                    funk: () {
                                       Navigator.of(context).pushNamed('/reseptions');
                                     },
                                   ),
-                                  FlatButton(
-                                    child: Text('Домой'),
-                                    onPressed: () {
+                                  myGradientButton(context,
+                                    btnText: "Домой",
+                                    funk: () {
                                       Navigator.of(context).pushNamed('/inhotel');
                                     },
                                   )
