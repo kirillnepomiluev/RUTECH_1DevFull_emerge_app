@@ -1,14 +1,15 @@
 
 
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:emerge/router.dart';
 import 'package:emerge/themes/custom_theme.dart';
 import 'package:emerge/themes/themes.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase/firestore.dart';
+
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:firebase/firebase.dart' as WebFirebase;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,14 +17,14 @@ import 'locale/app_translations_delegate.dart';
 import 'locale/application.dart';
 
 
-Firestore firestore = Firestore.instance;
+Firestore firestore = Firestore.getInstance();
 SharedPreferences prefs;
-FirebaseUser user;
-FirebaseDatabase database;
+WebFirebase.User user;
+
 Map<String, Object> userdata;
 bool isDarkTheme;
 String currentDeviceId;
-final FirebaseMessaging fcm = FirebaseMessaging();
+
 
 
 Future<void> main() async {
@@ -42,7 +43,7 @@ Future<void> main() async {
       databaseURL: 'https://fbproj-62d34.firebaseio.com/',
     ),
   );
-  database = FirebaseDatabase(app: app);
+
   await SharedPreferences.getInstance().then((value) {
     prefs = value;
     if (prefs != null && prefs.get("isDarkTeme") != null) {
