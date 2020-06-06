@@ -124,20 +124,19 @@ class _AbstractRoomState extends State<AbstractRoom> {
   }
 
   void getPeoplesInRoom() async {
-    List<dynamic> peoples = new List();
+    List<PeoplesInRoom> peoples = new List();
 
     Mobfirestore.Firestore.instance.collection("rooms").document(widget.roomPath).collection("peoples").snapshots()
         .listen((snapshot) {
       snapshot.documents.forEach((people) {
         peoples.add(
-            List.from(people["peoples"])
+            PeoplesInRoom.fromMap(people.data)
         );
       });
 
       setState(() {
         peoplesInRoom = peoples;
       });
-
         });
   }
 
