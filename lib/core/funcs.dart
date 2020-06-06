@@ -32,7 +32,7 @@ void enterToRoom(String room) async {
   String uid = user != null ? user.uid : "id" + Random(44).nextInt(67054).toString();
   var dataToSet = {
     "id" : uid,
-    "name" : (user.displayName != null)?  user.displayName : ("user " + Random(44).nextInt(67054).toString())
+    "name" : (user != null && user.displayName != null)?  user.displayName : ("user " + Random(44).nextInt(67054).toString())
   };
 
   await Mobfirestore.Firestore.instance
@@ -41,6 +41,17 @@ void enterToRoom(String room) async {
       .collection("peoples")
       .document(uid)
       .setData(dataToSet);
+}
 
+void exitFromRoom(String room) async {
+  String uid = user != null ? user.uid : "";
 
+  if (uid != "") {
+    await Mobfirestore.Firestore.instance
+        .collection("rooms")
+        .document(room)
+        .collection("peoples")
+        .document(uid)
+        .delete();
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
@@ -10,6 +11,14 @@ class EnterPage extends StatefulWidget {
 }
 
 class _EnterPageState extends State<EnterPage> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    enterToRoom("door");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +76,14 @@ class _EnterPageState extends State<EnterPage> {
                                   funk: () {
                                     Navigator.of(context)
                                         .pushNamed('/reseptions');
+                                    exitFromRoom("door");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Домой',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
+                                    exitFromRoom("door");
                                   },
                                 )
                               ],

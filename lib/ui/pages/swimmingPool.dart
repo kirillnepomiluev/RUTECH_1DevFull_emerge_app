@@ -1,3 +1,4 @@
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,6 +10,19 @@ class SwimmingPool extends StatefulWidget {
 }
 
 class _SwimmingPoolState extends State<SwimmingPool> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    enterToRoom("swimmingpool");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,36 +112,42 @@ class _SwimmingPoolState extends State<SwimmingPool> {
                                  btnText: 'Лаундж комната',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/loungeRoom');
+                                   exitFromRoom("swimmingpool");
                                  },
                                ),
                                myGradientButton(context,
                                  btnText: 'Балкон',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/balcony');
+                                   exitFromRoom("swimmingpool");
                                  },
                                ),
                                myGradientButton(context,
                                  btnText: 'Алкогольный бар',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/alcobar');
+                                   exitFromRoom("swimmingpool");
                                  },
                                ),
                                myGradientButton(context,
                                  btnText: 'Чайный бар',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/teabar');
+                                   exitFromRoom("swimmingpool");
                                  },
                                ),
                                myGradientButton(context,
                                  btnText: 'На ресепшн',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/reseptions');
+                                   exitFromRoom("swimmingpool");
                                  },
                                ),
                                myGradientButton(context,
                                  btnText: 'Домой',
                                  funk: () {
                                    Navigator.of(context).pushNamed('/inhotel');
+                                   exitFromRoom("swimmingpool");
                                  },
                                )
                              ],

@@ -1,6 +1,7 @@
 
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
@@ -20,7 +21,15 @@ class _ReseptionsState extends State<Reseptions> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    enterToRoom("reseptions");
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -66,36 +75,42 @@ class _ReseptionsState extends State<Reseptions> {
                                   btnText: 'Лаундж комната',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/loungeRoom');
+                                    exitFromRoom("reseptions");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Балкон',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/balcony');
+                                    exitFromRoom("reseptions");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Бассейн',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/swimmingpool');
+                                    exitFromRoom("reseptions");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Алкогольный бар',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/alcobar');
+                                    exitFromRoom("reseptions");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Чайный бар',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/teabar');
+                                    exitFromRoom("reseptions");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Домой',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
+                                    exitFromRoom("reseptions");
                                   },
                                 )
                               ],

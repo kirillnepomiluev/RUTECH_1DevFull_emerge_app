@@ -1,3 +1,4 @@
+import 'package:emerge/core/funcs.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
@@ -10,6 +11,19 @@ class loungeRoom extends StatefulWidget {
 }
 
 class _loungeRoomState extends State<loungeRoom> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    enterToRoom("lounge");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,36 +80,42 @@ class _loungeRoomState extends State<loungeRoom> {
                                   btnText: 'Балкон',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/balcony');
+                                    exitFromRoom("lounge");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Бассейн',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/swimmingpool');
+                                    exitFromRoom("lounge");
                                   },
                                 ),
                                 myGradientButton(context,
                                     btnText: 'Алкогольный бар',
                                     funk: () {
                                     Navigator.of(context).pushNamed('/alcobar');
+                                    exitFromRoom("lounge");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Чайный бар',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/teabar');
+                                    exitFromRoom("lounge");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'На ресепшн',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/reseptions');
+                                    exitFromRoom("lounge");
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Домой',
                                   funk: () {
                                     Navigator.of(context).pushNamed('/inhotel');
+                                    exitFromRoom("lounge");
                                   },
                                 )
                               ],
