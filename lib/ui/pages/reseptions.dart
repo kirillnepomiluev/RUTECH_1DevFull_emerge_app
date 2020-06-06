@@ -5,6 +5,7 @@ import 'package:emerge/core/funcs.dart';
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
+import 'package:emerge/ui/pages/peoplesList.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,26 @@ class Reseptions extends StatefulWidget {
 }
 
 class _ReseptionsState extends State<Reseptions> {
+  List<PeoplesInRoom> peoplesInRoom = new List();
+  List<Widget> routesWidget = new List();
+
+  void getPeoplesInRoom() async {
+    List<PeoplesInRoom> peoples = new List();
+
+    firestore.collection("rooms").document("reseptions").collection("peoples").snapshots()
+        .listen((snapshot) {
+      snapshot.documents.forEach((people) {
+        peoples.add(
+            PeoplesInRoom.fromMap(people.data)
+        );
+      });
+
+      setState(() {
+        getPeoplesInRoom();
+        peoplesInRoom = peoples;
+      });
+    });
+  }
 
 
   @override
@@ -122,10 +143,12 @@ class _ReseptionsState extends State<Reseptions> {
                           backgroundColor: prozrachniy,
                         );
                       });};
-//                  break;
-//                case 1:
-//                  _routeName = '/checkbag';
-//                  break;
+                  break;
+                case 1:
+                  {
+                   showDialog(context: context, child: Dialog( child:  PeoplesList(peoplesInRoom) ,));
+                  }
+                  break;
 //                case 2:
 //                  _routeName = '/reseptions';
 //                  break;

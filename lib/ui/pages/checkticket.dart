@@ -1,4 +1,5 @@
 
+import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +13,28 @@ class CheckTicket extends StatefulWidget{
 }
 
 class _CheckTicketState extends State<CheckTicket> {
+  List<PeoplesInRoom> peoplesInRoom = new List();
+  List<Widget> routesWidget = new List();
+
+  void getPeoplesInRoom() async {
+    List<PeoplesInRoom> peoples = new List();
+
+    firestore.collection("rooms").document("reseptions").collection("peoples").snapshots()
+        .listen((snapshot) {
+      snapshot.documents.forEach((people) {
+        peoples.add(
+            PeoplesInRoom.fromMap(people.data)
+        );
+      });
+
+      setState(() {
+        getPeoplesInRoom();
+        peoplesInRoom = peoples;
+      });
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

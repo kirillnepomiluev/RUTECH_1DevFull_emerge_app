@@ -1,6 +1,7 @@
 import 'package:emerge/chart/line_chart.dart';
 import 'package:emerge/core/funcs.dart';
 import 'package:emerge/locale/app_translations.dart';
+import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
 import 'package:flutter/material.dart';
@@ -9,12 +10,34 @@ import 'package:emerge/ui/pages/pamoramawidget.dart';
 import '../../main.dart';
 
 class InHotel extends StatefulWidget {
+
   @override
   _InHotelState createState() => _InHotelState();
 }
 
 
 class _InHotelState extends State<InHotel> {
+
+  List<PeoplesInRoom> peoplesInRoom = new List();
+  List<Widget> routesWidget = new List();
+
+  void getPeoplesInRoom() async {
+    List<PeoplesInRoom> peoples = new List();
+
+    firestore.collection("rooms").document("reseptions").collection("peoples").snapshots()
+        .listen((snapshot) {
+      snapshot.documents.forEach((people) {
+        peoples.add(
+            PeoplesInRoom.fromMap(people.data)
+        );
+      });
+
+      setState(() {
+        getPeoplesInRoom();
+        peoplesInRoom = peoples;
+      });
+    });
+  }
 
   @override
   void initState() {

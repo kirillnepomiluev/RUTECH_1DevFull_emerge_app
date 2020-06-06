@@ -1,4 +1,5 @@
 import 'package:emerge/core/funcs.dart';
+import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
@@ -13,6 +14,26 @@ class loungeRoom extends StatefulWidget {
 }
 
 class _loungeRoomState extends State<loungeRoom> {
+  List<PeoplesInRoom> peoplesInRoom = new List();
+  List<Widget> routesWidget = new List();
+
+  void getPeoplesInRoom() async {
+    List<PeoplesInRoom> peoples = new List();
+
+    firestore.collection("rooms").document("reseptions").collection("peoples").snapshots()
+        .listen((snapshot) {
+      snapshot.documents.forEach((people) {
+        peoples.add(
+            PeoplesInRoom.fromMap(people.data)
+        );
+      });
+
+      setState(() {
+        getPeoplesInRoom();
+        peoplesInRoom = peoples;
+      });
+    });
+  }
 
   @override
   void initState() {
