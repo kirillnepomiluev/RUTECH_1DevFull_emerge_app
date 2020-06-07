@@ -38,6 +38,9 @@ const prozrachniy = const Color(0x20F5F5F5); // текст боди основн
 //общее
 const redSelected = const Color(0xFFFF0000); // те
 
+const vDarkGrey = const Color(0xFF7f7f7f); //серый тёмный
+const vGrey = const Color(0xFFe6e6e6); //серыйсветлый
+const vRed = const Color(0xFFcf000a); //серыйсветлый
 
 
 

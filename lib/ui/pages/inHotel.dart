@@ -1,3 +1,4 @@
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:emerge/chart/line_chart.dart';
 import 'package:emerge/core/funcs.dart';
 import 'package:emerge/locale/app_translations.dart';
@@ -5,6 +6,7 @@ import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/ui/widgets/Biedgikpage.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
+import 'package:emerge/videocalls/pages/call.dart';
 import 'package:emerge/videocalls/pages/helloCallAcceptor.dart';
 import 'package:flutter/material.dart';
 import 'package:emerge/ui/pages/pamoramawidget.dart';
@@ -81,9 +83,9 @@ class _InHotelState extends State<InHotel> {
                       Map<String, dynamic> callData =   listDialogs[item];
                       return  Container(padding: EdgeInsets.all(20.0),
                           child: FlatButton(onPressed: () {
-                            showDialog(context: context, child: Dialog(
-                              backgroundColor: prozrachniy,
-                              child: HelloCallAcceptorWidget(callData["ids"][0]),));
+                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+                              return CallPage(channelName:  callData["ids"][0].substring(0,7), role: ClientRole.Audience);
+                            }));
                           },
                             child: BiedgikPage({
                               "name" : callData["name"]
