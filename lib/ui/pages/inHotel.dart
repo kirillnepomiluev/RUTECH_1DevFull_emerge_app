@@ -144,6 +144,7 @@ class _InHotelState extends State<InHotel> {
                         return Dialog(
                           child: Container(
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 myGradientButton(context,

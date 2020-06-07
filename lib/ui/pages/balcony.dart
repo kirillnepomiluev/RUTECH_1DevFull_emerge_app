@@ -132,6 +132,7 @@ class _BalconyState extends State<Balcony> {
                        return Dialog(
                          child: Container(
                            child: Column(
+                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                              crossAxisAlignment: CrossAxisAlignment.center,
                              children: <Widget>[
                                myGradientButton(context,

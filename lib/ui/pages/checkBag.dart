@@ -67,6 +67,7 @@ class _CheckBagState extends State<CheckBag> {
                         return Dialog(
                           child: Container(
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 myGradientButton(context,

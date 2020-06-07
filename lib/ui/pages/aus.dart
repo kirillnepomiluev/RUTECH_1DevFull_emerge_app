@@ -77,6 +77,7 @@ class _AusState extends State<Aus> {
     return Scaffold(
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Container(
               child: const Text('Test sign in with Google'),

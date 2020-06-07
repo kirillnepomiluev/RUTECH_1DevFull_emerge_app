@@ -44,7 +44,7 @@ class _PanoramaWidgetState extends State<PanoramaWidget> with SingleTickerProvid
     //Accelerometer events
     _streamSubscriptions
         .add(accelerometerEvents.listen((AccelerometerEvent event) {
-      if (event.x > 0.6 ||event.x <-0.6) {
+      if (event.x > 1 ||event.x <-1) {
         longitude =  -(event.z/10);
         controllerY.text = longitude.toString();
       }
@@ -61,8 +61,8 @@ class _PanoramaWidgetState extends State<PanoramaWidget> with SingleTickerProvid
 //              controller.text = longitude.toString();
 //            }
 
-            if (event.y > 0.05 ||event.y <-0.05) {
-              latitude = latitude -(event.y*0.25);
+            if (event.y > 0.1 ||event.y <-0.1) {
+              latitude = latitude -(event.y*0.01);
               controller.text = latitude.toString();
             }
 
@@ -148,7 +148,7 @@ class _SensorsExampleState extends State<SensorsExample> {
         appBar: AppBar(title: Text('Sensors Example')),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(8.0),

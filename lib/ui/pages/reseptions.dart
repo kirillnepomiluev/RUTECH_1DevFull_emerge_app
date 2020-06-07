@@ -143,6 +143,7 @@ class _ReseptionsState extends State<Reseptions> {
                         return Dialog(
                           child: Container(
                             child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 myGradientButton(context,
