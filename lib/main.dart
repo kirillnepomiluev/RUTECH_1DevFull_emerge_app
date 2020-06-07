@@ -86,7 +86,9 @@ class MyMirrorState extends State<MyMirror> {
   Widget build(BuildContext context) {
 
     return  FloatingActionButton(onPressed: () {  },
-          child: Container( child: (user==null)? Container() : CallPage(channelName: user.uid, role: ClientRole.Broadcaster)) ,
+          child: Container( child: (user==null)? Container() :
+          CallPage(channelName: user.uid.substring(0,7), role: ClientRole.Broadcaster)
+          ) ,
         );
   }
 }

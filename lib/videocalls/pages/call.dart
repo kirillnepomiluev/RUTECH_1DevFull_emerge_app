@@ -1,19 +1,18 @@
-import 'dart:async';
+import 'dart:async';import 'dart:async';
 
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
-import 'package:emerge/themes/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/settings.dart';
 
 class CallPage extends StatefulWidget {
-  /// non-modifiable channel.dart name of the page
+  /// non-modifiable channel name of the page
   final String channelName;
 
   /// non-modifiable client role of the page
   final ClientRole role;
 
-  /// Creates a call page with given channel.dart name.
+  /// Creates a call page with given channel name.
   const CallPage({Key key, this.channelName, this.role}) : super(key: key);
 
   @override
@@ -80,10 +79,10 @@ class _CallPageState extends State<CallPage> {
     };
 
     AgoraRtcEngine.onJoinChannelSuccess = (
-      String channel,
-      int uid,
-      int elapsed,
-    ) {
+        String channel,
+        int uid,
+        int elapsed,
+        ) {
       setState(() {
         final info = 'onJoinChannel: $channel, uid: $uid';
         _infoStrings.add(info);
@@ -114,11 +113,11 @@ class _CallPageState extends State<CallPage> {
     };
 
     AgoraRtcEngine.onFirstRemoteVideoFrame = (
-      int uid,
-      int width,
-      int height,
-      int elapsed,
-    ) {
+        int uid,
+        int width,
+        int height,
+        int elapsed,
+        ) {
       setState(() {
         final info = 'firstRemoteVideo: $uid ${width}x $height';
         _infoStrings.add(info);
@@ -157,37 +156,33 @@ class _CallPageState extends State<CallPage> {
     switch (views.length) {
       case 1:
         return Container(
-            color: prozrachniy,
             child: Column(
-          children: <Widget>[_videoView(views[0])],
-        ));
+              children: <Widget>[_videoView(views[0])],
+            ));
       case 2:
         return Container(
-          color: prozrachniy,
             child: Column(
-          children: <Widget>[
-            _expandedVideoRow([views[0]]),
-            _expandedVideoRow([views[1]])
-          ],
-        ));
+              children: <Widget>[
+                _expandedVideoRow([views[0]]),
+                _expandedVideoRow([views[1]])
+              ],
+            ));
       case 3:
         return Container(
-            color: prozrachniy,
             child: Column(
-          children: <Widget>[
-            _expandedVideoRow(views.sublist(0, 2)),
-            _expandedVideoRow(views.sublist(2, 3))
-          ],
-        ));
+              children: <Widget>[
+                _expandedVideoRow(views.sublist(0, 2)),
+                _expandedVideoRow(views.sublist(2, 3))
+              ],
+            ));
       case 4:
         return Container(
-            color: prozrachniy,
             child: Column(
-          children: <Widget>[
-            _expandedVideoRow(views.sublist(0, 2)),
-            _expandedVideoRow(views.sublist(2, 4))
-          ],
-        ));
+              children: <Widget>[
+                _expandedVideoRow(views.sublist(0, 2)),
+                _expandedVideoRow(views.sublist(2, 4))
+              ],
+            ));
       default:
     }
     return Container();
@@ -246,13 +241,11 @@ class _CallPageState extends State<CallPage> {
   /// Info panel to show logs
   Widget _panel() {
     return Container(
-      color: prozrachniy,
       padding: const EdgeInsets.symmetric(vertical: 48),
       alignment: Alignment.bottomCenter,
       child: FractionallySizedBox(
         heightFactor: 0.5,
         child: Container(
-          color: prozrachniy,
           padding: const EdgeInsets.symmetric(vertical: 48),
           child: ListView.builder(
             reverse: true,
@@ -276,10 +269,13 @@ class _CallPageState extends State<CallPage> {
                           horizontal: 5,
                         ),
                         decoration: BoxDecoration(
-                          color: prozrachniy,
+                          color: Colors.yellowAccent,
                           borderRadius: BorderRadius.circular(5),
                         ),
-                        child: Container()
+                        child: Text(
+                          _infoStrings[index],
+                          style: TextStyle(color: Colors.blueGrey),
+                        ),
                       ),
                     )
                   ],
@@ -310,7 +306,8 @@ class _CallPageState extends State<CallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: prozrachniy,
+
+      backgroundColor: Colors.black,
       body: Center(
         child: Stack(
           children: <Widget>[

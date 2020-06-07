@@ -46,7 +46,7 @@ class _HelloCallAcceptorWidgetState extends State<HelloCallAcceptorWidget> {
                       backgroundColor: prozrachniy,
                       child: ConfCallPage(
                           [
-                            CallPage(channelName: widget.interlocutorId, role: ClientRole.Audience),
+                            CallPage(channelName:  widget.interlocutorId.substring(0,7), role: ClientRole.Audience),
                           ]
                       )
                       ,)

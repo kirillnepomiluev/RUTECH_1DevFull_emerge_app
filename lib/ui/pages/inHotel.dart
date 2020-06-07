@@ -58,7 +58,6 @@ class _InHotelState extends State<InHotel> {
   Widget build(BuildContext context) {
     return Scaffold(
        floatingActionButton: mirror,
-        body:  PanoramaWidget(photoUrl: "assets/inhotel.jpg",),
         body:  Stack(
           children: [
             PanoramaWidget(photoUrl: "assets/inhotel.jpg",),

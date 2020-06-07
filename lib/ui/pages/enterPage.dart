@@ -50,7 +50,6 @@ class _EnterPageState extends State<EnterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: mirror,
-      body: PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
       body: Stack(
         children: [
           PanoramaWidget(photoUrl: "assets/enterClub.jpg",),

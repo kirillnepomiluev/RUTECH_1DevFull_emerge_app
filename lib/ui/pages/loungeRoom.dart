@@ -54,7 +54,6 @@ class _loungeRoomState extends State<loungeRoom> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: mirror,
-      body: PanoramaWidget(photoUrl: "assets/laungh.jpg",),
       body: Stack(
         children: [
           PanoramaWidget(photoUrl: "assets/laungh.jpg",),
