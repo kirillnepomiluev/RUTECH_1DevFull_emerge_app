@@ -14,7 +14,7 @@ class MyThemes {
     backgroundColor: mainbackgroundlight,
     accentColor: activbottombariconlight,
     scaffoldBackgroundColor: mainbackgroundlight,
-    dialogBackgroundColor: Colors.greenAccent,
+    dialogBackgroundColor: prozrachniy,
     brightness: Brightness.light,
     cardColor: boxlight,
     appBarTheme: AppBarTheme(

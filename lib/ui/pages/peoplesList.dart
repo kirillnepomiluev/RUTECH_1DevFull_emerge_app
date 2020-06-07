@@ -1,5 +1,3 @@
-
-
 import 'package:emerge/model/peoplesInRoom.dart';
 import 'package:emerge/themes/colors.dart';
 import 'package:emerge/videocalls/pages/helloCallAcceptor.dart';
@@ -7,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PeoplesList extends StatefulWidget {
-
   PeoplesList(this.peoplesInRoom);
 
   List<PeoplesInRoom> peoplesInRoom = new List();
@@ -23,18 +20,25 @@ class _PeoplesListState extends State<PeoplesList> {
     return ListView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        itemCount:  widget.peoplesInRoom.length,
+        itemCount: widget.peoplesInRoom.length,
         itemBuilder: (BuildContext ctx, int index) {
-          return  GestureDetector(
-            child: Text(widget.peoplesInRoom[index].toString()),
-            onTap:() {
+          return GestureDetector(
+            child: Center(
+              child: Container(
+                padding: EdgeInsets.all(12.0),
+                  child: Text(widget.peoplesInRoom[index].name, textAlign: TextAlign.center,)),
+            ),
+            onTap: () {
               Navigator.of(context).pop();
-              showDialog(context: context, child: Dialog(
-                backgroundColor: prozrachniy,
-                child: HelloCallAcceptorWidget(widget.peoplesInRoom[index].id),));
+              showDialog(
+                  context: context,
+                  child: Dialog(
+                    backgroundColor: prozrachniy,
+                    child:
+                        HelloCallAcceptorWidget(widget.peoplesInRoom[index].id),
+                  ));
             },
           );
         });
   }
-
 }
