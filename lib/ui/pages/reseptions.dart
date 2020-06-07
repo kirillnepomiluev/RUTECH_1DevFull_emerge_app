@@ -9,6 +9,7 @@ import 'package:emerge/ui/pages/pamoramawidget.dart';
 import 'package:emerge/ui/pages/peoplesList.dart';
 import 'package:emerge/ui/widgets/Biedgikpage.dart';
 import 'package:emerge/ui/widgets/RaisedGradientButton.dart';
+import 'package:emerge/ui/widgets/ToastWidget.dart';
 import 'package:emerge/videocalls/pages/call.dart';
 import 'package:emerge/videocalls/pages/confCall.dart';
 import 'package:emerge/videocalls/pages/helloCallAcceptor.dart';
@@ -200,9 +201,41 @@ class _ReseptionsState extends State<Reseptions> {
                    showDialog(context: context, child: Dialog( child:  PeoplesList(peoplesInRoom) ,));
                   }
                   break;
-//                case 2:
-//                  _routeName = '/reseptions';
-//                  break;
+                case 2:
+                  {showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Dialog(
+                          child: Container(
+                            height: 300,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                myGradientButton(context,
+                                  btnText: 'Крикнуть на всю комнату',
+                                  funk: () async {
+                                    showCompleteToast(context, " Вас слышат даже в соседней комнате");
+                                    await Future.delayed(const Duration(seconds: 2), (){});
+
+                                  },
+                                ),
+                                myGradientButton(context,
+                                  btnText: 'Сказать нормально',
+                                  funk: () {
+                                    Navigator.of(context).pushNamed('/loungeRoom');
+                                    exitFromRoom("reseptions");
+                                  },
+                                ),
+
+                              ],
+                            ),
+                          ),
+                          backgroundColor: prozrachniy,
+                        );
+                      });
+                  };
+                  break;
               }
               Navigator.pushNamed(context, _routeName);
             })

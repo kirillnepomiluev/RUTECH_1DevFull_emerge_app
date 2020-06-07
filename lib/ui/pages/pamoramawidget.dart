@@ -44,7 +44,7 @@ class _PanoramaWidgetState extends State<PanoramaWidget> with SingleTickerProvid
     //Accelerometer events
     _streamSubscriptions
         .add(accelerometerEvents.listen((AccelerometerEvent event) {
-      if (event.x > 1 ||event.x <-1) {
+      if (event.x > 0.6 ||event.x <-0.6) {
         longitude =  -(event.z/10);
         controllerY.text = longitude.toString();
       }
@@ -62,7 +62,7 @@ class _PanoramaWidgetState extends State<PanoramaWidget> with SingleTickerProvid
 //            }
 
             if (event.y > 0.1 ||event.y <-0.1) {
-              latitude = latitude -(event.y*0.01);
+              latitude = latitude -(event.y*0.08);
               controller.text = latitude.toString();
             }
 

@@ -103,18 +103,18 @@ class _AusState extends State<Aus> {
                 _signInWithGoogle();
               }
             ),
-            myGradientButton(context,
-                btnText: 'Facebook',
-                funk: (){
-                  _signInWithFacebook();
-                }
-            ),
-            myGradientButton(context,
-                btnText: "Number",
-                funk: (){
-                  Navigator.of(context).pushNamed('/ausnumber');
-                }
-            )
+//            myGradientButton(context,
+//                btnText: 'Facebook',
+//                funk: (){
+//                  _signInWithFacebook();
+//                }
+//            ),
+//            myGradientButton(context,
+//                btnText: "Number",
+//                funk: (){
+//                  Navigator.of(context).pushNamed('/ausnumber');
+//                }
+//            )
           ],
         ),
       ),
