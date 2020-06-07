@@ -22,7 +22,7 @@ class Reseptions extends StatefulWidget {
   @override
   _ReseptionsState createState() => _ReseptionsState();
 }
-
+int count =0;
 class _ReseptionsState extends State<Reseptions> {
   List<PeoplesInRoom> peoplesInRoom = new List();
   List<Widget> routesWidget = new List();
@@ -59,10 +59,12 @@ class _ReseptionsState extends State<Reseptions> {
     super.dispose();
   }
 
+
   
 
   @override
   Widget build(BuildContext context) {
+    count =0;
     return Scaffold(
         floatingActionButton: mirror,
       body: Stack(
@@ -215,16 +217,28 @@ class _ReseptionsState extends State<Reseptions> {
                                 myGradientButton(context,
                                   btnText: 'Крикнуть на всю комнату',
                                   funk: () async {
+                                    Navigator.of(context).pop();
                                     showCompleteToast(context, " Вас слышат даже в соседней комнате");
-                                    await Future.delayed(const Duration(seconds: 2), (){});
+                                    showDialog(
+                                        context: context, child : Dialog(
+                                      child: Center(child:  Image.asset("assets/oxpaha.png"),),
 
+                                    ));
+                                    if (count < 1 ) {
+                                      showCompleteToast(context, " Предупреждаем, что вы ведете себя не прилично в нашем заведении");
+                                      count= count +1;
+                                    }
+                                    else {
+                                      Navigator.of(context).pop();
+                                      Navigator.pushNamed(context, "/goout");
+
+                                    }
                                   },
                                 ),
                                 myGradientButton(context,
                                   btnText: 'Сказать нормально',
                                   funk: () {
-                                    Navigator.of(context).pushNamed('/loungeRoom');
-                                    exitFromRoom("reseptions");
+                                    showCompleteToast(context, " Вас слышат только те кто рядом");
                                   },
                                 ),
 

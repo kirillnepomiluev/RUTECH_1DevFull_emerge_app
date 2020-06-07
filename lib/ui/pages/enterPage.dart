@@ -52,7 +52,7 @@ class _EnterPageState extends State<EnterPage> {
         floatingActionButton: mirror,
       body: Stack(
         children: [
-          PanoramaWidget(photoUrl: "assets/enterClub.jpg",),
+          PanoramaWidget(photoUrl: "assets/enterClub.png",),
           StreamBuilder(stream: firestore.collection("users").document(user.uid).collection("chats").snapshots(),
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               if (!snapshot.hasData) {

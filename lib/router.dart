@@ -1,5 +1,6 @@
 
 import 'package:emerge/ui/pages/abstractRoom.dart';
+import 'package:emerge/ui/pages/goOutFromOxpaha.dart';
 import 'package:emerge/videocalls/pages/index.dart';
 import 'package:emerge/ui/pages/alcoBar.dart';
 import 'package:emerge/ui/pages/aus.dart';
@@ -82,6 +83,9 @@ class Router {
         return MaterialPageRoute(builder: (_) => AusGoogle());
       case '/ausnumber':
         return MaterialPageRoute(builder: (_) => AusNumber());
+
+      case '/goout':
+        return MaterialPageRoute(builder: (_) => GoOutPage());
 
       default:
         return MaterialPageRoute(
