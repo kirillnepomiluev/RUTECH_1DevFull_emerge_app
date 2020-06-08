@@ -10,6 +10,7 @@ import 'package:emerge/ui/pages/ausgoogle.dart';
 import 'package:emerge/ui/pages/balcony.dart';
 import 'package:emerge/ui/pages/checkBag.dart';
 import 'package:emerge/ui/pages/checkCard.dart';
+import 'package:emerge/ui/pages/checkNaerCards.dart';
 import 'package:emerge/ui/pages/checkticket.dart';
 import 'package:emerge/ui/pages/enterPage.dart';
 import 'package:emerge/ui/pages/inHotel.dart';
@@ -59,6 +60,8 @@ class Router {
         return MaterialPageRoute(builder: (_) => CheckTicket());
       case '/сheckсard':
         return MaterialPageRoute(builder: (_) => CheckCard());
+      case '/сhecknearсard':
+        return MaterialPageRoute(builder: (_) => CheckNearCard());
 
       case '/reseptions':
         return MaterialPageRoute(builder: (_) => Reseptions());

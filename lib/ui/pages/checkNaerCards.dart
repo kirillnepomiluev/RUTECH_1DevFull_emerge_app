@@ -5,43 +5,49 @@ import 'package:flutter/material.dart';
 
 import '../../main.dart';
 
-class CheckBag extends StatefulWidget {
+class CheckNearCard extends StatefulWidget{
   @override
-  _CheckBagState createState() => _CheckBagState();
+  _CheckNearCardState createState() => _CheckNearCardState();
 }
 
-class _CheckBagState extends State<CheckBag> {
+class _CheckNearCardState extends State<CheckNearCard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: mirror,
-      body: Center(
-        child: Row(
-            children: <Widget>[
-              //              FlatButton(
-//                child: Text("билет"),
-//                onPressed: () {
-//                  Navigator.of(context).pushNamed('/checkticket');
-//                },
-//              ),
-//              FlatButton(
-//                child: Text("карту"),
-//                onPressed: () {
-//                  Navigator.of(context).pushNamed('/сheckсard');
-//                },
-//              )
-            ],
-          ),
-      ),
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:36.0),
+              child: Image(image:AssetImage('assets/visitka.jpeg')),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:36.0),
+              child: Image(image:AssetImage('assets/kirillvisitka.jpeg')),
+            )
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
             unselectedItemColor:
-            Theme.of(context).tabBarTheme.unselectedLabelColor,
-            selectedItemColor: Theme.of(context).tabBarTheme.labelColor,
-            selectedLabelStyle: Theme.of(context).tabBarTheme.labelStyle,
+            Theme
+                .of(context)
+                .tabBarTheme
+                .unselectedLabelColor,
+            selectedItemColor: Theme
+                .of(context)
+                .tabBarTheme
+                .labelColor,
+            selectedLabelStyle: Theme
+                .of(context)
+                .tabBarTheme
+                .labelStyle,
             unselectedLabelStyle:
-            Theme.of(context).tabBarTheme.unselectedLabelStyle,
+            Theme
+                .of(context)
+                .tabBarTheme
+                .unselectedLabelStyle,
             showUnselectedLabels: true,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -71,20 +77,30 @@ class _CheckBagState extends State<CheckBag> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 myGradientButton(context,
-                                  btnText: "билет",
+                                  btnText: 'Зеркало',
                                   funk: () {
-                                    Navigator.of(context).pushNamed('/checkticket');
+                                    Navigator.of(context)
+                                        .pushNamed('/mirror');
                                   },
                                 ),
                                 myGradientButton(context,
-                                  btnText: "карту",
+                                  btnText: 'Дверь',
                                   funk: () {
-                                    Navigator.of(context).pushNamed('/сheckсard');
+                                    Navigator.of(context)
+                                        .pushNamed('/enterpage');
                                   },
-                                ),myGradientButton(context,
-                                  btnText: "Ближайшие карты",
+                                ),
+                                myGradientButton(context,
+                                  btnText: 'Проверить сумку',
                                   funk: () {
-                                    Navigator.of(context).pushNamed('/сhecknearсard');
+                                    Navigator.of(context)
+                                        .pushNamed('/checkbag');
+                                  },
+                                ),
+                                myGradientButton(context,
+                                  btnText: "На расепшн",
+                                  funk: () {
+                                    Navigator.of(context).pushNamed('/reseptions');
                                   },
                                 ),
                                 myGradientButton(context,
@@ -111,6 +127,5 @@ class _CheckBagState extends State<CheckBag> {
             })
 
     );
-    throw UnimplementedError();
   }
 }

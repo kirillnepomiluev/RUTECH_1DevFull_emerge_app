@@ -1,5 +1,3 @@
-
-
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emerge/core/funcs.dart';
@@ -22,7 +20,9 @@ class Reseptions extends StatefulWidget {
   @override
   _ReseptionsState createState() => _ReseptionsState();
 }
-int count =0;
+
+int count = 0;
+
 class _ReseptionsState extends State<Reseptions> {
   List<PeoplesInRoom> peoplesInRoom = new List();
   List<Widget> routesWidget = new List();
@@ -30,12 +30,14 @@ class _ReseptionsState extends State<Reseptions> {
   void getPeoplesInRoom() async {
     List<PeoplesInRoom> peoples = new List();
 
-    firestore.collection("rooms").document("reseptions").collection("peoples").snapshots()
+    firestore
+        .collection("rooms")
+        .document("reseptions")
+        .collection("peoples")
+        .snapshots()
         .listen((snapshot) {
       snapshot.documents.forEach((people) {
-        peoples.add(
-            PeoplesInRoom.fromMap(people.data)
-        );
+        peoples.add(PeoplesInRoom.fromMap(people.data));
       });
 
       setState(() {
@@ -44,7 +46,6 @@ class _ReseptionsState extends State<Reseptions> {
       });
     });
   }
-
 
   @override
   void initState() {
@@ -59,68 +60,71 @@ class _ReseptionsState extends State<Reseptions> {
     super.dispose();
   }
 
-
-  
-
   @override
   Widget build(BuildContext context) {
-    count =0;
+    count = 0;
     return Scaffold(
         floatingActionButton: mirror,
-      body: Stack(
-        children: [
-          PanoramaWidget(photoUrl: "assets/central.jpg",),
-          StreamBuilder(stream: firestore.collection("users").document(user.uid).collection("chats").snapshots(),
-            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-              if (!snapshot.hasData) {
-                return Container() ;
-              }
+        body: Stack(
+          children: [
+            PanoramaWidget(
+              photoUrl: "assets/central.jpg",
+            ),
+            StreamBuilder(
+              stream: firestore
+                  .collection("users")
+                  .document(user.uid)
+                  .collection("chats")
+                  .snapshots(),
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (!snapshot.hasData) {
+                  return Container();
+                }
 
-              if (snapshot.data.documents.length ==0) {
-                return Container() ;
-              }
-              List<Map<String, dynamic>> listDialogs = [];
-              snapshot.data.documents.forEach((doc) {
-                listDialogs.add(doc.data);
-              });
-              return ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: listDialogs.length,
-                  itemBuilder: (context, item) {
-                    Map<String, dynamic> callData =   listDialogs[item];
-                    return  Container(padding: EdgeInsets.all(20.0),
-                        child: FlatButton(onPressed: () {
-                          showDialog(context: context, child:
-                          Dialog (
-                            backgroundColor: prozrachniy,
-                            child: ConfCallPage(
-                                [
-                                  CallPage(channelName:  callData["ids"][0].substring(0,7), role: ClientRole.Audience),
-                                ]
-                            )
-                            ,)
-                          );
-                        },
-                          child: BiedgikPage({
-                            "name" : callData["name"]
-                          }),)
-
-                    );
-                  });
-
-
-            },)
-        ],
-      ),
+                if (snapshot.data.documents.length == 0) {
+                  return Container();
+                }
+                List<Map<String, dynamic>> listDialogs = [];
+                snapshot.data.documents.forEach((doc) {
+                  listDialogs.add(doc.data);
+                });
+                return ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: listDialogs.length,
+                    itemBuilder: (context, item) {
+                      Map<String, dynamic> callData = listDialogs[item];
+                      return Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: FlatButton(
+                            onPressed: () {
+                              showDialog(
+                                  context: context,
+                                  child: Dialog(
+                                    backgroundColor: prozrachniy,
+                                    child: ConfCallPage([
+                                      CallPage(
+                                          channelName: callData["ids"][0]
+                                              .substring(0, 7),
+                                          role: ClientRole.Audience),
+                                    ]),
+                                  ));
+                            },
+                            child: BiedgikPage({"name": callData["name"]}),
+                          ));
+                    });
+              },
+            )
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
             unselectedItemColor:
-            Theme.of(context).tabBarTheme.unselectedLabelColor,
+                Theme.of(context).tabBarTheme.unselectedLabelColor,
             selectedItemColor: Theme.of(context).tabBarTheme.labelColor,
             selectedLabelStyle: Theme.of(context).tabBarTheme.labelStyle,
             unselectedLabelStyle:
-            Theme.of(context).tabBarTheme.unselectedLabelStyle,
+                Theme.of(context).tabBarTheme.unselectedLabelStyle,
             showUnselectedLabels: true,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -140,122 +144,147 @@ class _ReseptionsState extends State<Reseptions> {
               String _routeName;
               switch (index) {
                 case 0:
-                  {showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Dialog(
-                          child: Container(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                myGradientButton(context,
-                                  btnText: 'Лаундж комната',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/loungeRoom');
-                                    exitFromRoom("reseptions");
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Балкон',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/balcony');
-                                    exitFromRoom("reseptions");
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Бассейн',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/swimmingpool');
-                                    exitFromRoom("reseptions");
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Алкогольный бар',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/alcobar');
-                                    exitFromRoom("reseptions");
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Чайный бар',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/teabar');
-                                    exitFromRoom("reseptions");
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Домой',
-                                  funk: () {
-                                    Navigator.of(context).pushNamed('/inhotel');
-                                    exitFromRoom("reseptions");
-                                  },
-                                )
-                              ],
+                  {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Лаундж комната',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/loungeRoom');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Балкон',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/balcony');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Бассейн',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/swimmingpool');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Алкогольный бар',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/alcobar');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Чайный бар',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/teabar');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Домой',
+                                    funk: () {
+                                      Navigator.of(context)
+                                          .pushNamed('/inhotel');
+                                      exitFromRoom("reseptions");
+                                    },
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                          backgroundColor: prozrachniy,
-                        );
-                      });};
+                            backgroundColor: prozrachniy,
+                          );
+                        });
+                  }
+                  ;
                   break;
                 case 1:
                   {
-                   showDialog(context: context, child: Dialog( child:  PeoplesList(peoplesInRoom) ,));
+                    showDialog(
+                        context: context,
+                        child: Dialog(
+                          child: PeoplesList(peoplesInRoom),
+                        ));
                   }
                   break;
                 case 2:
-                  {showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return Dialog(
-                          child: Container(
-                            height: 300,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                myGradientButton(context,
-                                  btnText: 'Крикнуть на всю комнату',
-                                  funk: () async {
-                                    Navigator.of(context).pop();
-                                    showCompleteToast(context, " Вас слышат даже в соседней комнате");
-                                    showDialog(
-                                        context: context, child : Dialog(
-                                      child: Center(child:  Image.asset("assets/oxpaha.png"),),
-
-                                    ));
-                                    if (count < 1 ) {
-                                      showCompleteToast(context, " Предупреждаем, что вы ведете себя не прилично в нашем заведении");
-                                      count= count +1;
-                                    }
-                                    else {
-                                      Navigator.of(context).pop();
-                                      Navigator.pushNamed(context, "/goout");
-
-                                    }
-                                  },
-                                ),
-                                myGradientButton(context,
-                                  btnText: 'Сказать нормально',
-                                  funk: () {
-                                    showCompleteToast(context, " Вас слышат только те кто рядом");
-                                  },
-                                ),
-
-                              ],
+                  {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            child: Container(
+                              height: 300,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                    child: myGradientButton(
+                                      context,
+                                      btnText: 'Крикнуть на всю комнату',
+                                      funk: () async {
+                                        Navigator.of(context).pop();
+                                        showCompleteToast(context,
+                                            " Вас слышат даже в соседней комнате");
+                                        showDialog(
+                                            context: context,
+                                            child: Dialog(
+                                              child: Center( child:
+                                                Container( decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/oxpaha.jpg"))),)
+                                              ),
+                                            ));
+                                        if (count < 1) {
+                                          showCompleteToast(context,
+                                              " Предупреждаем, что вы ведете себя не прилично в нашем заведении");
+                                          count = count + 1;
+                                        } else {
+                                          Navigator.of(context).pop();
+                                          Navigator.pushNamed(context, "/goout");
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                  myGradientButton(
+                                    context,
+                                    btnText: 'Сказать нормально',
+                                    funk: () {
+                                      showCompleteToast(context,
+                                          " Вас слышат только те кто рядом");
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          backgroundColor: prozrachniy,
-                        );
-                      });
-                  };
+                            backgroundColor: prozrachniy,
+                          );
+                        });
+                  }
+                  ;
                   break;
               }
               Navigator.pushNamed(context, _routeName);
-            })
-
-    );
+            }));
   }
-
-
 }

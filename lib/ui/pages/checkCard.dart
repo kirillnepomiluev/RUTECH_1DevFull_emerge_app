@@ -15,6 +15,14 @@ class _CheckCardState extends State<CheckCard> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: mirror,
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:36.0),
+              child: Image(image:AssetImage('assets/visitka.jpeg')),
+            ),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             iconSize: 26,
